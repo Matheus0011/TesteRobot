@@ -1,0 +1,2567 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.0 (Python 3.12.3 on win32)" generated="2024-05-20T13:23:43.754038" rpa="false" schemaversion="5">
+<suite id="s1" name="Selenium" source="C:\GitRobot\Selenium">
+<suite id="s1-s1" name="1Teste" source="C:\GitRobot\Selenium\1teste.robot">
+<test id="s1-s1-t1" name="Browser Log Cases" line="30">
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2024-05-20T13:23:44.010188" level="WARN">desired_capabilities has been deprecated and removed. Please use options to configure browsers as per documentation.</msg>
+<msg time="2024-05-20T13:23:44.012187" level="INFO">Opening browser 'Chrome' to base url 'https://viewer.optixone.com.br/pacs/viewers/optixDev/?id=10001021&amp;cdi=1&amp;H=36947ad783829afc000fb6ed8a1a371e&amp;SD=022c6714d0168a2bc32f78dd921a795bbd248ca7f9aa685db8159ef82d40d893191faf787d18788d1267771a1a4a130ab5b209af9b47b7e7927aa32ef2eaec2f9c05438fc3f4758cd10786889cae520498786ee6d99289c2434487b9d2cc802567b875e4036983c78ab1452eacf71eff633d3a835e1da31686d963f059f67a636a6c23de365c410c9f78c92d25b475f4&amp;r=65618'.</msg>
+<arg>${url}</arg>
+<arg>Chrome</arg>
+<arg>desired_capabilities=${capabilities}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2024-05-20T13:23:44.009223" elapsed="7.036252"/>
+</kw>
+<kw name="Maximize Browser Window" owner="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" start="2024-05-20T13:23:51.046474" elapsed="0.076629"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2024-05-20T13:23:59.127421" level="INFO">Slept 8 seconds.</msg>
+<arg>8</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2024-05-20T13:23:51.126103" elapsed="8.002281"/>
+</kw>
+<kw name="Get WebElements" owner="SeleniumLibrary">
+<msg time="2024-05-20T13:23:59.176630" level="INFO">${ELEMENTOS} = [&lt;selenium.webdriver.remote.webelement.WebElement (session="9495a13361c644d77af820e99ac6e56f", element="f.194F2057059425BCECE97FDFBD22E65E.d.770678C8826F4F75B27501E10B419C16.e.65")&gt;, &lt;selenium.webdriv...</msg>
+<var>${ELEMENTOS}</var>
+<arg>//button</arg>
+<doc>Returns a list of WebElement objects matching the ``locator``.</doc>
+<status status="PASS" start="2024-05-20T13:23:59.130379" elapsed="0.046251"/>
+</kw>
+<for flavor="IN">
+<iter>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2024-05-20T13:23:59.181627" level="INFO">Clicking element '//html/body/header/button[1]/i'.</msg>
+<arg>${element_id}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2024-05-20T13:23:59.180655" elapsed="0.103754"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2024-05-20T13:24:00.284686" level="INFO">Slept 1 second.</msg>
+<arg>1</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2024-05-20T13:23:59.284409" elapsed="1.000277"/>
+</kw>
+<kw name="Get Browser Console Log Entries">
+<kw name="Get Library Instance" owner="BuiltIn">
+<msg time="2024-05-20T13:24:00.286240" level="INFO">${selenium} = &lt;SeleniumLibrary.SeleniumLibrary object at 0x000002E33E5D1E50&gt;</msg>
+<var>${selenium}</var>
+<arg>SeleniumLibrary</arg>
+<doc>Returns the currently active instance of the specified library.</doc>
+<status status="PASS" start="2024-05-20T13:24:00.285233" elapsed="0.001007"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2024-05-20T13:24:00.287241" level="INFO">${webdriver} = &lt;selenium.webdriver.chrome.webdriver.WebDriver (session="9495a13361c644d77af820e99ac6e56f")&gt;</msg>
+<var>${webdriver}</var>
+<arg>${selenium._drivers.active_drivers}[0]</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2024-05-20T13:24:00.286240" elapsed="0.001001"/>
+</kw>
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2024-05-20T13:24:00.290239" level="INFO">${log entries} = []</msg>
+<var>${log entries}</var>
+<arg>$webdriver.get_log('browser')</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2024-05-20T13:24:00.287241" elapsed="0.003999"/>
+</kw>
+<return>
+<value>${log entries}</value>
+<status status="PASS" start="2024-05-20T13:24:00.291240" elapsed="0.000000"/>
+</return>
+<msg time="2024-05-20T13:24:00.291240" level="INFO">${log entries} = []</msg>
+<var>${log entries}</var>
+<status status="PASS" start="2024-05-20T13:24:00.285233" elapsed="0.007528"/>
+</kw>
+<if>
+<branch type="IF" condition="${log entries} == []">
+<kw name="Log To Console" owner="BuiltIn">
+<arg>Elemento:${element_id} PASS</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2024-05-20T13:24:00.293771" elapsed="0.000000"/>
+</kw>
+<status status="PASS" start="2024-05-20T13:24:00.292761" elapsed="0.002012"/>
+</branch>
+<branch type="ELSE">
+<kw name="Fail" owner="BuiltIn">
+<arg>${log entries} ${element_id}</arg>
+<doc>Fails the test with the given message and optionally alters its tags.</doc>
+<status status="NOT RUN" start="2024-05-20T13:24:00.294773" elapsed="0.000000"/>
+</kw>
+<status status="NOT RUN" start="2024-05-20T13:24:00.294773" elapsed="0.000000"/>
+</branch>
+<status status="PASS" start="2024-05-20T13:24:00.292761" elapsed="0.002012"/>
+</if>
+<var name="${element_id}">//html/body/header/button[1]/i</var>
+<status status="PASS" start="2024-05-20T13:23:59.179633" elapsed="1.115140"/>
+</iter>
+<iter>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2024-05-20T13:24:00.295785" level="INFO">Clicking element '//html/body/div[2]/span[19]'.</msg>
+<arg>${element_id}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2024-05-20T13:24:00.295785" elapsed="0.119755"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2024-05-20T13:24:01.416994" level="INFO">Slept 1 second.</msg>
+<arg>1</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2024-05-20T13:24:00.415540" elapsed="1.001454"/>
+</kw>
+<kw name="Get Browser Console Log Entries">
+<kw name="Get Library Instance" owner="BuiltIn">
+<msg time="2024-05-20T13:24:01.418039" level="INFO">${selenium} = &lt;SeleniumLibrary.SeleniumLibrary object at 0x000002E33E5D1E50&gt;</msg>
+<var>${selenium}</var>
+<arg>SeleniumLibrary</arg>
+<doc>Returns the currently active instance of the specified library.</doc>
+<status status="PASS" start="2024-05-20T13:24:01.418039" elapsed="0.000000"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2024-05-20T13:24:01.419039" level="INFO">${webdriver} = &lt;selenium.webdriver.chrome.webdriver.WebDriver (session="9495a13361c644d77af820e99ac6e56f")&gt;</msg>
+<var>${webdriver}</var>
+<arg>${selenium._drivers.active_drivers}[0]</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2024-05-20T13:24:01.418039" elapsed="0.001000"/>
+</kw>
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2024-05-20T13:24:01.422547" level="INFO">${log entries} = []</msg>
+<var>${log entries}</var>
+<arg>$webdriver.get_log('browser')</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2024-05-20T13:24:01.420040" elapsed="0.003518"/>
+</kw>
+<return>
+<value>${log entries}</value>
+<status status="PASS" start="2024-05-20T13:24:01.424558" elapsed="0.000000"/>
+</return>
+<msg time="2024-05-20T13:24:01.424558" level="INFO">${log entries} = []</msg>
+<var>${log entries}</var>
+<status status="PASS" start="2024-05-20T13:24:01.416994" elapsed="0.008561"/>
+</kw>
+<if>
+<branch type="IF" condition="${log entries} == []">
+<kw name="Log To Console" owner="BuiltIn">
+<arg>Elemento:${element_id} PASS</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2024-05-20T13:24:01.425555" elapsed="0.000998"/>
+</kw>
+<status status="PASS" start="2024-05-20T13:24:01.425555" elapsed="0.001999"/>
+</branch>
+<branch type="ELSE">
+<kw name="Fail" owner="BuiltIn">
+<arg>${log entries} ${element_id}</arg>
+<doc>Fails the test with the given message and optionally alters its tags.</doc>
+<status status="NOT RUN" start="2024-05-20T13:24:01.427554" elapsed="0.000000"/>
+</kw>
+<status status="NOT RUN" start="2024-05-20T13:24:01.427554" elapsed="0.000000"/>
+</branch>
+<status status="PASS" start="2024-05-20T13:24:01.425555" elapsed="0.002999"/>
+</if>
+<var name="${element_id}">//html/body/div[2]/span[19]</var>
+<status status="PASS" start="2024-05-20T13:24:00.295785" elapsed="1.132769"/>
+</iter>
+<iter>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2024-05-20T13:24:01.428554" level="INFO">Clicking element '//html/body/header/button[2]'.</msg>
+<arg>${element_id}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2024-05-20T13:24:01.428554" elapsed="0.067971"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2024-05-20T13:24:02.498199" level="INFO">Slept 1 second.</msg>
+<arg>1</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2024-05-20T13:24:01.496525" elapsed="1.001674"/>
+</kw>
+<kw name="Get Browser Console Log Entries">
+<kw name="Get Library Instance" owner="BuiltIn">
+<msg time="2024-05-20T13:24:02.500214" level="INFO">${selenium} = &lt;SeleniumLibrary.SeleniumLibrary object at 0x000002E33E5D1E50&gt;</msg>
+<var>${selenium}</var>
+<arg>SeleniumLibrary</arg>
+<doc>Returns the currently active instance of the specified library.</doc>
+<status status="PASS" start="2024-05-20T13:24:02.499248" elapsed="0.000966"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2024-05-20T13:24:02.502731" level="INFO">${webdriver} = &lt;selenium.webdriver.chrome.webdriver.WebDriver (session="9495a13361c644d77af820e99ac6e56f")&gt;</msg>
+<var>${webdriver}</var>
+<arg>${selenium._drivers.active_drivers}[0]</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2024-05-20T13:24:02.501215" elapsed="0.001615"/>
+</kw>
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2024-05-20T13:24:02.506250" level="INFO">${log entries} = []</msg>
+<var>${log entries}</var>
+<arg>$webdriver.get_log('browser')</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2024-05-20T13:24:02.502830" elapsed="0.003420"/>
+</kw>
+<return>
+<value>${log entries}</value>
+<status status="PASS" start="2024-05-20T13:24:02.507299" elapsed="0.000000"/>
+</return>
+<msg time="2024-05-20T13:24:02.507299" level="INFO">${log entries} = []</msg>
+<var>${log entries}</var>
+<status status="PASS" start="2024-05-20T13:24:02.498199" elapsed="0.010067"/>
+</kw>
+<if>
+<branch type="IF" condition="${log entries} == []">
+<kw name="Log To Console" owner="BuiltIn">
+<arg>Elemento:${element_id} PASS</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2024-05-20T13:24:02.508266" elapsed="0.000996"/>
+</kw>
+<status status="PASS" start="2024-05-20T13:24:02.508266" elapsed="0.001992"/>
+</branch>
+<branch type="ELSE">
+<kw name="Fail" owner="BuiltIn">
+<arg>${log entries} ${element_id}</arg>
+<doc>Fails the test with the given message and optionally alters its tags.</doc>
+<status status="NOT RUN" start="2024-05-20T13:24:02.510258" elapsed="0.000000"/>
+</kw>
+<status status="NOT RUN" start="2024-05-20T13:24:02.510258" elapsed="0.000000"/>
+</branch>
+<status status="PASS" start="2024-05-20T13:24:02.508266" elapsed="0.001992"/>
+</if>
+<var name="${element_id}">//html/body/header/button[2]</var>
+<status status="PASS" start="2024-05-20T13:24:01.428554" elapsed="1.081704"/>
+</iter>
+<iter>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2024-05-20T13:24:02.511261" level="INFO">Clicking element '//html/body/div[2]/span[19]'.</msg>
+<arg>${element_id}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2024-05-20T13:24:02.511261" elapsed="0.087865"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2024-05-20T13:24:03.600674" level="INFO">Slept 1 second.</msg>
+<arg>1</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2024-05-20T13:24:02.599126" elapsed="1.001548"/>
+</kw>
+<kw name="Get Browser Console Log Entries">
+<kw name="Get Library Instance" owner="BuiltIn">
+<msg time="2024-05-20T13:24:03.601680" level="INFO">${selenium} = &lt;SeleniumLibrary.SeleniumLibrary object at 0x000002E33E5D1E50&gt;</msg>
+<var>${selenium}</var>
+<arg>SeleniumLibrary</arg>
+<doc>Returns the currently active instance of the specified library.</doc>
+<status status="PASS" start="2024-05-20T13:24:03.601680" elapsed="0.000000"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2024-05-20T13:24:03.602723" level="INFO">${webdriver} = &lt;selenium.webdriver.chrome.webdriver.WebDriver (session="9495a13361c644d77af820e99ac6e56f")&gt;</msg>
+<var>${webdriver}</var>
+<arg>${selenium._drivers.active_drivers}[0]</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2024-05-20T13:24:03.602723" elapsed="0.000960"/>
+</kw>
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2024-05-20T13:24:03.607228" level="INFO">${log entries} = []</msg>
+<var>${log entries}</var>
+<arg>$webdriver.get_log('browser')</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2024-05-20T13:24:03.603683" elapsed="0.003545"/>
+</kw>
+<return>
+<value>${log entries}</value>
+<status status="PASS" start="2024-05-20T13:24:03.607228" elapsed="0.000000"/>
+</return>
+<msg time="2024-05-20T13:24:03.608274" level="INFO">${log entries} = []</msg>
+<var>${log entries}</var>
+<status status="PASS" start="2024-05-20T13:24:03.600674" elapsed="0.007600"/>
+</kw>
+<if>
+<branch type="IF" condition="${log entries} == []">
+<kw name="Log To Console" owner="BuiltIn">
+<arg>Elemento:${element_id} PASS</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2024-05-20T13:24:03.608274" elapsed="0.000961"/>
+</kw>
+<status status="PASS" start="2024-05-20T13:24:03.608274" elapsed="0.000961"/>
+</branch>
+<branch type="ELSE">
+<kw name="Fail" owner="BuiltIn">
+<arg>${log entries} ${element_id}</arg>
+<doc>Fails the test with the given message and optionally alters its tags.</doc>
+<status status="NOT RUN" start="2024-05-20T13:24:03.609235" elapsed="0.001040"/>
+</kw>
+<status status="NOT RUN" start="2024-05-20T13:24:03.609235" elapsed="0.001040"/>
+</branch>
+<status status="PASS" start="2024-05-20T13:24:03.608274" elapsed="0.002001"/>
+</if>
+<var name="${element_id}">//html/body/div[2]/span[19]</var>
+<status status="PASS" start="2024-05-20T13:24:02.511261" elapsed="1.099014"/>
+</iter>
+<iter>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2024-05-20T13:24:03.611276" level="INFO">Clicking element '//html/body/header/button[3]/i[1]'.</msg>
+<arg>${element_id}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2024-05-20T13:24:03.610275" elapsed="0.058226"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2024-05-20T13:24:04.669835" level="INFO">Slept 1 second.</msg>
+<arg>1</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2024-05-20T13:24:03.668501" elapsed="1.001334"/>
+</kw>
+<kw name="Get Browser Console Log Entries">
+<kw name="Get Library Instance" owner="BuiltIn">
+<msg time="2024-05-20T13:24:04.672349" level="INFO">${selenium} = &lt;SeleniumLibrary.SeleniumLibrary object at 0x000002E33E5D1E50&gt;</msg>
+<var>${selenium}</var>
+<arg>SeleniumLibrary</arg>
+<doc>Returns the currently active instance of the specified library.</doc>
+<status status="PASS" start="2024-05-20T13:24:04.670842" elapsed="0.001507"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2024-05-20T13:24:04.673355" level="INFO">${webdriver} = &lt;selenium.webdriver.chrome.webdriver.WebDriver (session="9495a13361c644d77af820e99ac6e56f")&gt;</msg>
+<var>${webdriver}</var>
+<arg>${selenium._drivers.active_drivers}[0]</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2024-05-20T13:24:04.672349" elapsed="0.001006"/>
+</kw>
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2024-05-20T13:24:04.678361" level="INFO">${log entries} = []</msg>
+<var>${log entries}</var>
+<arg>$webdriver.get_log('browser')</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2024-05-20T13:24:04.674356" elapsed="0.004005"/>
+</kw>
+<return>
+<value>${log entries}</value>
+<status status="PASS" start="2024-05-20T13:24:04.678361" elapsed="0.001005"/>
+</return>
+<msg time="2024-05-20T13:24:04.679366" level="INFO">${log entries} = []</msg>
+<var>${log entries}</var>
+<status status="PASS" start="2024-05-20T13:24:04.670842" elapsed="0.008524"/>
+</kw>
+<if>
+<branch type="IF" condition="${log entries} == []">
+<kw name="Log To Console" owner="BuiltIn">
+<arg>Elemento:${element_id} PASS</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2024-05-20T13:24:04.680362" elapsed="0.001005"/>
+</kw>
+<status status="PASS" start="2024-05-20T13:24:04.679366" elapsed="0.002001"/>
+</branch>
+<branch type="ELSE">
+<kw name="Fail" owner="BuiltIn">
+<arg>${log entries} ${element_id}</arg>
+<doc>Fails the test with the given message and optionally alters its tags.</doc>
+<status status="NOT RUN" start="2024-05-20T13:24:04.681367" elapsed="0.000999"/>
+</kw>
+<status status="NOT RUN" start="2024-05-20T13:24:04.681367" elapsed="0.000999"/>
+</branch>
+<status status="PASS" start="2024-05-20T13:24:04.679366" elapsed="0.003000"/>
+</if>
+<var name="${element_id}">//html/body/header/button[3]/i[1]</var>
+<status status="PASS" start="2024-05-20T13:24:03.610275" elapsed="1.072091"/>
+</iter>
+<iter>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2024-05-20T13:24:04.682366" level="INFO">Clicking element '//html/body/ul[1]/li[2]'.</msg>
+<arg>${element_id}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2024-05-20T13:24:04.682366" elapsed="0.056244"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2024-05-20T13:24:05.739113" level="INFO">Slept 1 second.</msg>
+<arg>1</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2024-05-20T13:24:04.738610" elapsed="1.000503"/>
+</kw>
+<kw name="Get Browser Console Log Entries">
+<kw name="Get Library Instance" owner="BuiltIn">
+<msg time="2024-05-20T13:24:05.740121" level="INFO">${selenium} = &lt;SeleniumLibrary.SeleniumLibrary object at 0x000002E33E5D1E50&gt;</msg>
+<var>${selenium}</var>
+<arg>SeleniumLibrary</arg>
+<doc>Returns the currently active instance of the specified library.</doc>
+<status status="PASS" start="2024-05-20T13:24:05.740121" elapsed="0.000000"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2024-05-20T13:24:05.741123" level="INFO">${webdriver} = &lt;selenium.webdriver.chrome.webdriver.WebDriver (session="9495a13361c644d77af820e99ac6e56f")&gt;</msg>
+<var>${webdriver}</var>
+<arg>${selenium._drivers.active_drivers}[0]</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2024-05-20T13:24:05.741123" elapsed="0.002539"/>
+</kw>
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2024-05-20T13:24:05.746658" level="INFO">${log entries} = []</msg>
+<var>${log entries}</var>
+<arg>$webdriver.get_log('browser')</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2024-05-20T13:24:05.743662" elapsed="0.002996"/>
+</kw>
+<return>
+<value>${log entries}</value>
+<status status="PASS" start="2024-05-20T13:24:05.747660" elapsed="0.000000"/>
+</return>
+<msg time="2024-05-20T13:24:05.747660" level="INFO">${log entries} = []</msg>
+<var>${log entries}</var>
+<status status="PASS" start="2024-05-20T13:24:05.739113" elapsed="0.008547"/>
+</kw>
+<if>
+<branch type="IF" condition="${log entries} == []">
+<kw name="Log To Console" owner="BuiltIn">
+<arg>Elemento:${element_id} PASS</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2024-05-20T13:24:05.748687" elapsed="0.000972"/>
+</kw>
+<status status="PASS" start="2024-05-20T13:24:05.747660" elapsed="0.001999"/>
+</branch>
+<branch type="ELSE">
+<kw name="Fail" owner="BuiltIn">
+<arg>${log entries} ${element_id}</arg>
+<doc>Fails the test with the given message and optionally alters its tags.</doc>
+<status status="NOT RUN" start="2024-05-20T13:24:05.749659" elapsed="0.000000"/>
+</kw>
+<status status="NOT RUN" start="2024-05-20T13:24:05.749659" elapsed="0.000000"/>
+</branch>
+<status status="PASS" start="2024-05-20T13:24:05.747660" elapsed="0.001999"/>
+</if>
+<var name="${element_id}">//html/body/ul[1]/li[2]</var>
+<status status="PASS" start="2024-05-20T13:24:04.682366" elapsed="1.067293"/>
+</iter>
+<iter>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2024-05-20T13:24:05.750689" level="INFO">Clicking element '//html/body/header/button[3]/i[1]'.</msg>
+<arg>${element_id}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2024-05-20T13:24:05.750689" elapsed="0.040084"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2024-05-20T13:24:06.791198" level="INFO">Slept 1 second.</msg>
+<arg>1</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2024-05-20T13:24:05.790773" elapsed="1.000425"/>
+</kw>
+<kw name="Get Browser Console Log Entries">
+<kw name="Get Library Instance" owner="BuiltIn">
+<msg time="2024-05-20T13:24:06.793777" level="INFO">${selenium} = &lt;SeleniumLibrary.SeleniumLibrary object at 0x000002E33E5D1E50&gt;</msg>
+<var>${selenium}</var>
+<arg>SeleniumLibrary</arg>
+<doc>Returns the currently active instance of the specified library.</doc>
+<status status="PASS" start="2024-05-20T13:24:06.792837" elapsed="0.000940"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2024-05-20T13:24:06.794776" level="INFO">${webdriver} = &lt;selenium.webdriver.chrome.webdriver.WebDriver (session="9495a13361c644d77af820e99ac6e56f")&gt;</msg>
+<var>${webdriver}</var>
+<arg>${selenium._drivers.active_drivers}[0]</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2024-05-20T13:24:06.793777" elapsed="0.000999"/>
+</kw>
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2024-05-20T13:24:06.798033" level="INFO">${log entries} = []</msg>
+<var>${log entries}</var>
+<arg>$webdriver.get_log('browser')</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2024-05-20T13:24:06.795771" elapsed="0.002262"/>
+</kw>
+<return>
+<value>${log entries}</value>
+<status status="PASS" start="2024-05-20T13:24:06.798033" elapsed="0.001049"/>
+</return>
+<msg time="2024-05-20T13:24:06.799082" level="INFO">${log entries} = []</msg>
+<var>${log entries}</var>
+<status status="PASS" start="2024-05-20T13:24:06.791198" elapsed="0.007884"/>
+</kw>
+<if>
+<branch type="IF" condition="${log entries} == []">
+<kw name="Log To Console" owner="BuiltIn">
+<arg>Elemento:${element_id} PASS</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2024-05-20T13:24:06.800045" elapsed="0.000000"/>
+</kw>
+<status status="PASS" start="2024-05-20T13:24:06.799082" elapsed="0.000963"/>
+</branch>
+<branch type="ELSE">
+<kw name="Fail" owner="BuiltIn">
+<arg>${log entries} ${element_id}</arg>
+<doc>Fails the test with the given message and optionally alters its tags.</doc>
+<status status="NOT RUN" start="2024-05-20T13:24:06.801048" elapsed="0.000000"/>
+</kw>
+<status status="NOT RUN" start="2024-05-20T13:24:06.800045" elapsed="0.001003"/>
+</branch>
+<status status="PASS" start="2024-05-20T13:24:06.799082" elapsed="0.001966"/>
+</if>
+<var name="${element_id}">//html/body/header/button[3]/i[1]</var>
+<status status="PASS" start="2024-05-20T13:24:05.749659" elapsed="1.051389"/>
+</iter>
+<iter>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2024-05-20T13:24:06.802635" level="INFO">Clicking element '//html/body/ul[1]/li[3]'.</msg>
+<arg>${element_id}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2024-05-20T13:24:06.801048" elapsed="0.046717"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2024-05-20T13:24:07.849035" level="INFO">Slept 1 second.</msg>
+<arg>1</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2024-05-20T13:24:06.848764" elapsed="1.000271"/>
+</kw>
+<kw name="Get Browser Console Log Entries">
+<kw name="Get Library Instance" owner="BuiltIn">
+<msg time="2024-05-20T13:24:07.850595" level="INFO">${selenium} = &lt;SeleniumLibrary.SeleniumLibrary object at 0x000002E33E5D1E50&gt;</msg>
+<var>${selenium}</var>
+<arg>SeleniumLibrary</arg>
+<doc>Returns the currently active instance of the specified library.</doc>
+<status status="PASS" start="2024-05-20T13:24:07.850595" elapsed="0.000998"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2024-05-20T13:24:07.852593" level="INFO">${webdriver} = &lt;selenium.webdriver.chrome.webdriver.WebDriver (session="9495a13361c644d77af820e99ac6e56f")&gt;</msg>
+<var>${webdriver}</var>
+<arg>${selenium._drivers.active_drivers}[0]</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2024-05-20T13:24:07.851593" elapsed="0.001000"/>
+</kw>
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2024-05-20T13:24:07.854992" level="INFO">${log entries} = []</msg>
+<var>${log entries}</var>
+<arg>$webdriver.get_log('browser')</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2024-05-20T13:24:07.852593" elapsed="0.003428"/>
+</kw>
+<return>
+<value>${log entries}</value>
+<status status="PASS" start="2024-05-20T13:24:07.856021" elapsed="0.000000"/>
+</return>
+<msg time="2024-05-20T13:24:07.856021" level="INFO">${log entries} = []</msg>
+<var>${log entries}</var>
+<status status="PASS" start="2024-05-20T13:24:07.849587" elapsed="0.006434"/>
+</kw>
+<if>
+<branch type="IF" condition="${log entries} == []">
+<kw name="Log To Console" owner="BuiltIn">
+<arg>Elemento:${element_id} PASS</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2024-05-20T13:24:07.858023" elapsed="0.000966"/>
+</kw>
+<status status="PASS" start="2024-05-20T13:24:07.856988" elapsed="0.002001"/>
+</branch>
+<branch type="ELSE">
+<kw name="Fail" owner="BuiltIn">
+<arg>${log entries} ${element_id}</arg>
+<doc>Fails the test with the given message and optionally alters its tags.</doc>
+<status status="NOT RUN" start="2024-05-20T13:24:07.858989" elapsed="0.001033"/>
+</kw>
+<status status="NOT RUN" start="2024-05-20T13:24:07.858989" elapsed="0.001033"/>
+</branch>
+<status status="PASS" start="2024-05-20T13:24:07.856988" elapsed="0.003034"/>
+</if>
+<var name="${element_id}">//html/body/ul[1]/li[3]</var>
+<status status="PASS" start="2024-05-20T13:24:06.801048" elapsed="1.058974"/>
+</iter>
+<iter>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2024-05-20T13:24:07.861022" level="INFO">Clicking element '//html/body/header/button[3]/i[1]'.</msg>
+<arg>${element_id}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2024-05-20T13:24:07.860022" elapsed="0.042506"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2024-05-20T13:24:08.903177" level="INFO">Slept 1 second.</msg>
+<arg>1</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2024-05-20T13:24:07.902528" elapsed="1.000649"/>
+</kw>
+<kw name="Get Browser Console Log Entries">
+<kw name="Get Library Instance" owner="BuiltIn">
+<msg time="2024-05-20T13:24:08.905224" level="INFO">${selenium} = &lt;SeleniumLibrary.SeleniumLibrary object at 0x000002E33E5D1E50&gt;</msg>
+<var>${selenium}</var>
+<arg>SeleniumLibrary</arg>
+<doc>Returns the currently active instance of the specified library.</doc>
+<status status="PASS" start="2024-05-20T13:24:08.904227" elapsed="0.000997"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2024-05-20T13:24:08.907257" level="INFO">${webdriver} = &lt;selenium.webdriver.chrome.webdriver.WebDriver (session="9495a13361c644d77af820e99ac6e56f")&gt;</msg>
+<var>${webdriver}</var>
+<arg>${selenium._drivers.active_drivers}[0]</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2024-05-20T13:24:08.906189" elapsed="0.002001"/>
+</kw>
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2024-05-20T13:24:08.912213" level="INFO">${log entries} = []</msg>
+<var>${log entries}</var>
+<arg>$webdriver.get_log('browser')</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2024-05-20T13:24:08.908190" elapsed="0.004023"/>
+</kw>
+<return>
+<value>${log entries}</value>
+<status status="PASS" start="2024-05-20T13:24:08.912213" elapsed="0.001005"/>
+</return>
+<msg time="2024-05-20T13:24:08.913218" level="INFO">${log entries} = []</msg>
+<var>${log entries}</var>
+<status status="PASS" start="2024-05-20T13:24:08.903177" elapsed="0.010041"/>
+</kw>
+<if>
+<branch type="IF" condition="${log entries} == []">
+<kw name="Log To Console" owner="BuiltIn">
+<arg>Elemento:${element_id} PASS</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2024-05-20T13:24:08.914738" elapsed="0.001009"/>
+</kw>
+<status status="PASS" start="2024-05-20T13:24:08.913218" elapsed="0.002529"/>
+</branch>
+<branch type="ELSE">
+<kw name="Fail" owner="BuiltIn">
+<arg>${log entries} ${element_id}</arg>
+<doc>Fails the test with the given message and optionally alters its tags.</doc>
+<status status="NOT RUN" start="2024-05-20T13:24:08.916748" elapsed="0.000000"/>
+</kw>
+<status status="NOT RUN" start="2024-05-20T13:24:08.915747" elapsed="0.001001"/>
+</branch>
+<status status="PASS" start="2024-05-20T13:24:08.913218" elapsed="0.003530"/>
+</if>
+<var name="${element_id}">//html/body/header/button[3]/i[1]</var>
+<status status="PASS" start="2024-05-20T13:24:07.860022" elapsed="1.056726"/>
+</iter>
+<iter>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2024-05-20T13:24:08.917775" level="INFO">Clicking element '//html/body/ul[1]/li[4]'.</msg>
+<arg>${element_id}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2024-05-20T13:24:08.917775" elapsed="0.057770"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2024-05-20T13:24:09.976782" level="INFO">Slept 1 second.</msg>
+<arg>1</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2024-05-20T13:24:08.976593" elapsed="1.000189"/>
+</kw>
+<kw name="Get Browser Console Log Entries">
+<kw name="Get Library Instance" owner="BuiltIn">
+<msg time="2024-05-20T13:24:09.978348" level="INFO">${selenium} = &lt;SeleniumLibrary.SeleniumLibrary object at 0x000002E33E5D1E50&gt;</msg>
+<var>${selenium}</var>
+<arg>SeleniumLibrary</arg>
+<doc>Returns the currently active instance of the specified library.</doc>
+<status status="PASS" start="2024-05-20T13:24:09.978348" elapsed="0.000994"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2024-05-20T13:24:09.980380" level="INFO">${webdriver} = &lt;selenium.webdriver.chrome.webdriver.WebDriver (session="9495a13361c644d77af820e99ac6e56f")&gt;</msg>
+<var>${webdriver}</var>
+<arg>${selenium._drivers.active_drivers}[0]</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2024-05-20T13:24:09.979342" elapsed="0.001999"/>
+</kw>
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2024-05-20T13:24:09.985902" level="INFO">${log entries} = []</msg>
+<var>${log entries}</var>
+<arg>$webdriver.get_log('browser')</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2024-05-20T13:24:09.981341" elapsed="0.004561"/>
+</kw>
+<return>
+<value>${log entries}</value>
+<status status="PASS" start="2024-05-20T13:24:09.985902" elapsed="0.001005"/>
+</return>
+<msg time="2024-05-20T13:24:09.986907" level="INFO">${log entries} = []</msg>
+<var>${log entries}</var>
+<status status="PASS" start="2024-05-20T13:24:09.977331" elapsed="0.010531"/>
+</kw>
+<if>
+<branch type="IF" condition="${log entries} == []">
+<kw name="Log To Console" owner="BuiltIn">
+<arg>Elemento:${element_id} PASS</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2024-05-20T13:24:09.988867" elapsed="0.001031"/>
+</kw>
+<status status="PASS" start="2024-05-20T13:24:09.987862" elapsed="0.002036"/>
+</branch>
+<branch type="ELSE">
+<kw name="Fail" owner="BuiltIn">
+<arg>${log entries} ${element_id}</arg>
+<doc>Fails the test with the given message and optionally alters its tags.</doc>
+<status status="NOT RUN" start="2024-05-20T13:24:09.990865" elapsed="0.000000"/>
+</kw>
+<status status="NOT RUN" start="2024-05-20T13:24:09.989898" elapsed="0.000967"/>
+</branch>
+<status status="PASS" start="2024-05-20T13:24:09.987862" elapsed="0.003003"/>
+</if>
+<var name="${element_id}">//html/body/ul[1]/li[4]</var>
+<status status="PASS" start="2024-05-20T13:24:08.917775" elapsed="1.073090"/>
+</iter>
+<iter>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2024-05-20T13:24:09.991891" level="INFO">Clicking element '//html/body/header/button[3]/i[1]'.</msg>
+<arg>${element_id}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2024-05-20T13:24:09.991891" elapsed="0.048725"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2024-05-20T13:24:11.041041" level="INFO">Slept 1 second.</msg>
+<arg>1</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2024-05-20T13:24:10.040616" elapsed="1.000425"/>
+</kw>
+<kw name="Get Browser Console Log Entries">
+<kw name="Get Library Instance" owner="BuiltIn">
+<msg time="2024-05-20T13:24:11.042496" level="INFO">${selenium} = &lt;SeleniumLibrary.SeleniumLibrary object at 0x000002E33E5D1E50&gt;</msg>
+<var>${selenium}</var>
+<arg>SeleniumLibrary</arg>
+<doc>Returns the currently active instance of the specified library.</doc>
+<status status="PASS" start="2024-05-20T13:24:11.042496" elapsed="0.000968"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2024-05-20T13:24:11.044466" level="INFO">${webdriver} = &lt;selenium.webdriver.chrome.webdriver.WebDriver (session="9495a13361c644d77af820e99ac6e56f")&gt;</msg>
+<var>${webdriver}</var>
+<arg>${selenium._drivers.active_drivers}[0]</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2024-05-20T13:24:11.043464" elapsed="0.001002"/>
+</kw>
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2024-05-20T13:24:11.050464" level="INFO">${log entries} = []</msg>
+<var>${log entries}</var>
+<arg>$webdriver.get_log('browser')</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2024-05-20T13:24:11.044466" elapsed="0.005998"/>
+</kw>
+<return>
+<value>${log entries}</value>
+<status status="PASS" start="2024-05-20T13:24:11.050464" elapsed="0.001030"/>
+</return>
+<msg time="2024-05-20T13:24:11.051494" level="INFO">${log entries} = []</msg>
+<var>${log entries}</var>
+<status status="PASS" start="2024-05-20T13:24:11.041041" elapsed="0.010453"/>
+</kw>
+<if>
+<branch type="IF" condition="${log entries} == []">
+<kw name="Log To Console" owner="BuiltIn">
+<arg>Elemento:${element_id} PASS</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2024-05-20T13:24:11.052984" elapsed="0.000000"/>
+</kw>
+<status status="PASS" start="2024-05-20T13:24:11.051494" elapsed="0.002502"/>
+</branch>
+<branch type="ELSE">
+<kw name="Fail" owner="BuiltIn">
+<arg>${log entries} ${element_id}</arg>
+<doc>Fails the test with the given message and optionally alters its tags.</doc>
+<status status="NOT RUN" start="2024-05-20T13:24:11.054998" elapsed="0.000000"/>
+</kw>
+<status status="NOT RUN" start="2024-05-20T13:24:11.053996" elapsed="0.001002"/>
+</branch>
+<status status="PASS" start="2024-05-20T13:24:11.051494" elapsed="0.003504"/>
+</if>
+<var name="${element_id}">//html/body/header/button[3]/i[1]</var>
+<status status="PASS" start="2024-05-20T13:24:09.991891" elapsed="1.063107"/>
+</iter>
+<iter>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2024-05-20T13:24:11.056022" level="INFO">Clicking element '//html/body/ul[1]/li[5]'.</msg>
+<arg>${element_id}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2024-05-20T13:24:11.056022" elapsed="0.049171"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2024-05-20T13:24:12.105694" level="INFO">Slept 1 second.</msg>
+<arg>1</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2024-05-20T13:24:11.105193" elapsed="1.000501"/>
+</kw>
+<kw name="Get Browser Console Log Entries">
+<kw name="Get Library Instance" owner="BuiltIn">
+<msg time="2024-05-20T13:24:12.106738" level="INFO">${selenium} = &lt;SeleniumLibrary.SeleniumLibrary object at 0x000002E33E5D1E50&gt;</msg>
+<var>${selenium}</var>
+<arg>SeleniumLibrary</arg>
+<doc>Returns the currently active instance of the specified library.</doc>
+<status status="PASS" start="2024-05-20T13:24:12.106738" elapsed="0.000966"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2024-05-20T13:24:12.107704" level="INFO">${webdriver} = &lt;selenium.webdriver.chrome.webdriver.WebDriver (session="9495a13361c644d77af820e99ac6e56f")&gt;</msg>
+<var>${webdriver}</var>
+<arg>${selenium._drivers.active_drivers}[0]</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2024-05-20T13:24:12.107704" elapsed="0.000000"/>
+</kw>
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2024-05-20T13:24:12.110700" level="INFO">${log entries} = []</msg>
+<var>${log entries}</var>
+<arg>$webdriver.get_log('browser')</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2024-05-20T13:24:12.108741" elapsed="0.001959"/>
+</kw>
+<return>
+<value>${log entries}</value>
+<status status="PASS" start="2024-05-20T13:24:12.110700" elapsed="0.001003"/>
+</return>
+<msg time="2024-05-20T13:24:12.111703" level="INFO">${log entries} = []</msg>
+<var>${log entries}</var>
+<status status="PASS" start="2024-05-20T13:24:12.105694" elapsed="0.007009"/>
+</kw>
+<if>
+<branch type="IF" condition="${log entries} == []">
+<kw name="Log To Console" owner="BuiltIn">
+<arg>Elemento:${element_id} PASS</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2024-05-20T13:24:12.113209" elapsed="0.001010"/>
+</kw>
+<status status="PASS" start="2024-05-20T13:24:12.112703" elapsed="0.001516"/>
+</branch>
+<branch type="ELSE">
+<kw name="Fail" owner="BuiltIn">
+<arg>${log entries} ${element_id}</arg>
+<doc>Fails the test with the given message and optionally alters its tags.</doc>
+<status status="NOT RUN" start="2024-05-20T13:24:12.114219" elapsed="0.000000"/>
+</kw>
+<status status="NOT RUN" start="2024-05-20T13:24:12.114219" elapsed="0.000998"/>
+</branch>
+<status status="PASS" start="2024-05-20T13:24:12.112703" elapsed="0.002514"/>
+</if>
+<var name="${element_id}">//html/body/ul[1]/li[5]</var>
+<status status="PASS" start="2024-05-20T13:24:11.054998" elapsed="1.060219"/>
+</iter>
+<iter>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2024-05-20T13:24:12.116257" level="INFO">Clicking element '//html/body/header/button[3]/i[1]'.</msg>
+<arg>${element_id}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2024-05-20T13:24:12.115217" elapsed="0.043697"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2024-05-20T13:24:13.159416" level="INFO">Slept 1 second.</msg>
+<arg>1</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2024-05-20T13:24:12.158914" elapsed="1.000502"/>
+</kw>
+<kw name="Get Browser Console Log Entries">
+<kw name="Get Library Instance" owner="BuiltIn">
+<msg time="2024-05-20T13:24:13.160511" level="INFO">${selenium} = &lt;SeleniumLibrary.SeleniumLibrary object at 0x000002E33E5D1E50&gt;</msg>
+<var>${selenium}</var>
+<arg>SeleniumLibrary</arg>
+<doc>Returns the currently active instance of the specified library.</doc>
+<status status="PASS" start="2024-05-20T13:24:13.160511" elapsed="0.000961"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2024-05-20T13:24:13.162477" level="INFO">${webdriver} = &lt;selenium.webdriver.chrome.webdriver.WebDriver (session="9495a13361c644d77af820e99ac6e56f")&gt;</msg>
+<var>${webdriver}</var>
+<arg>${selenium._drivers.active_drivers}[0]</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2024-05-20T13:24:13.161472" elapsed="0.001005"/>
+</kw>
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2024-05-20T13:24:13.165567" level="INFO">${log entries} = []</msg>
+<var>${log entries}</var>
+<arg>$webdriver.get_log('browser')</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2024-05-20T13:24:13.162477" elapsed="0.003090"/>
+</kw>
+<return>
+<value>${log entries}</value>
+<status status="PASS" start="2024-05-20T13:24:13.165567" elapsed="0.001036"/>
+</return>
+<msg time="2024-05-20T13:24:13.166603" level="INFO">${log entries} = []</msg>
+<var>${log entries}</var>
+<status status="PASS" start="2024-05-20T13:24:13.159416" elapsed="0.007187"/>
+</kw>
+<if>
+<branch type="IF" condition="${log entries} == []">
+<kw name="Log To Console" owner="BuiltIn">
+<arg>Elemento:${element_id} PASS</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2024-05-20T13:24:13.167577" elapsed="0.000995"/>
+</kw>
+<status status="PASS" start="2024-05-20T13:24:13.166603" elapsed="0.001969"/>
+</branch>
+<branch type="ELSE">
+<kw name="Fail" owner="BuiltIn">
+<arg>${log entries} ${element_id}</arg>
+<doc>Fails the test with the given message and optionally alters its tags.</doc>
+<status status="NOT RUN" start="2024-05-20T13:24:13.169570" elapsed="0.000000"/>
+</kw>
+<status status="NOT RUN" start="2024-05-20T13:24:13.168572" elapsed="0.000998"/>
+</branch>
+<status status="PASS" start="2024-05-20T13:24:13.166603" elapsed="0.002967"/>
+</if>
+<var name="${element_id}">//html/body/header/button[3]/i[1]</var>
+<status status="PASS" start="2024-05-20T13:24:12.115217" elapsed="1.054353"/>
+</iter>
+<iter>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2024-05-20T13:24:13.170572" level="INFO">Clicking element '//html/body/ul[1]/li[6]'.</msg>
+<arg>${element_id}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2024-05-20T13:24:13.170572" elapsed="0.045089"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2024-05-20T13:24:14.215884" level="INFO">Slept 1 second.</msg>
+<arg>1</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2024-05-20T13:24:13.215661" elapsed="1.000223"/>
+</kw>
+<kw name="Get Browser Console Log Entries">
+<kw name="Get Library Instance" owner="BuiltIn">
+<msg time="2024-05-20T13:24:14.216928" level="INFO">${selenium} = &lt;SeleniumLibrary.SeleniumLibrary object at 0x000002E33E5D1E50&gt;</msg>
+<var>${selenium}</var>
+<arg>SeleniumLibrary</arg>
+<doc>Returns the currently active instance of the specified library.</doc>
+<status status="PASS" start="2024-05-20T13:24:14.216928" elapsed="0.000964"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2024-05-20T13:24:14.219931" level="INFO">${webdriver} = &lt;selenium.webdriver.chrome.webdriver.WebDriver (session="9495a13361c644d77af820e99ac6e56f")&gt;</msg>
+<var>${webdriver}</var>
+<arg>${selenium._drivers.active_drivers}[0]</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2024-05-20T13:24:14.217892" elapsed="0.002039"/>
+</kw>
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2024-05-20T13:24:14.222448" level="INFO">${log entries} = []</msg>
+<var>${log entries}</var>
+<arg>$webdriver.get_log('browser')</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2024-05-20T13:24:14.219931" elapsed="0.003517"/>
+</kw>
+<return>
+<value>${log entries}</value>
+<status status="PASS" start="2024-05-20T13:24:14.223448" elapsed="0.000000"/>
+</return>
+<msg time="2024-05-20T13:24:14.223448" level="INFO">${log entries} = []</msg>
+<var>${log entries}</var>
+<status status="PASS" start="2024-05-20T13:24:14.215884" elapsed="0.008565"/>
+</kw>
+<if>
+<branch type="IF" condition="${log entries} == []">
+<kw name="Log To Console" owner="BuiltIn">
+<arg>Elemento:${element_id} PASS</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2024-05-20T13:24:14.224449" elapsed="0.001000"/>
+</kw>
+<status status="PASS" start="2024-05-20T13:24:14.224449" elapsed="0.001000"/>
+</branch>
+<branch type="ELSE">
+<kw name="Fail" owner="BuiltIn">
+<arg>${log entries} ${element_id}</arg>
+<doc>Fails the test with the given message and optionally alters its tags.</doc>
+<status status="NOT RUN" start="2024-05-20T13:24:14.226450" elapsed="0.000000"/>
+</kw>
+<status status="NOT RUN" start="2024-05-20T13:24:14.225449" elapsed="0.001001"/>
+</branch>
+<status status="PASS" start="2024-05-20T13:24:14.224449" elapsed="0.002001"/>
+</if>
+<var name="${element_id}">//html/body/ul[1]/li[6]</var>
+<status status="PASS" start="2024-05-20T13:24:13.170572" elapsed="1.055878"/>
+</iter>
+<iter>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2024-05-20T13:24:14.227449" level="INFO">Clicking element '//html/body/header/button[3]/i[1]'.</msg>
+<arg>${element_id}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2024-05-20T13:24:14.227449" elapsed="0.041915"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2024-05-20T13:24:15.270508" level="INFO">Slept 1 second.</msg>
+<arg>1</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2024-05-20T13:24:14.270367" elapsed="1.000141"/>
+</kw>
+<kw name="Get Browser Console Log Entries">
+<kw name="Get Library Instance" owner="BuiltIn">
+<msg time="2024-05-20T13:24:15.272519" level="INFO">${selenium} = &lt;SeleniumLibrary.SeleniumLibrary object at 0x000002E33E5D1E50&gt;</msg>
+<var>${selenium}</var>
+<arg>SeleniumLibrary</arg>
+<doc>Returns the currently active instance of the specified library.</doc>
+<status status="PASS" start="2024-05-20T13:24:15.271554" elapsed="0.000965"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2024-05-20T13:24:15.273558" level="INFO">${webdriver} = &lt;selenium.webdriver.chrome.webdriver.WebDriver (session="9495a13361c644d77af820e99ac6e56f")&gt;</msg>
+<var>${webdriver}</var>
+<arg>${selenium._drivers.active_drivers}[0]</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2024-05-20T13:24:15.272519" elapsed="0.001039"/>
+</kw>
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2024-05-20T13:24:15.276519" level="INFO">${log entries} = []</msg>
+<var>${log entries}</var>
+<arg>$webdriver.get_log('browser')</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2024-05-20T13:24:15.273558" elapsed="0.003957"/>
+</kw>
+<return>
+<value>${log entries}</value>
+<status status="PASS" start="2024-05-20T13:24:15.277515" elapsed="0.000000"/>
+</return>
+<msg time="2024-05-20T13:24:15.277515" level="INFO">${log entries} = []</msg>
+<var>${log entries}</var>
+<status status="PASS" start="2024-05-20T13:24:15.270508" elapsed="0.007007"/>
+</kw>
+<if>
+<branch type="IF" condition="${log entries} == []">
+<kw name="Log To Console" owner="BuiltIn">
+<arg>Elemento:${element_id} PASS</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2024-05-20T13:24:15.278560" elapsed="0.000964"/>
+</kw>
+<status status="PASS" start="2024-05-20T13:24:15.278560" elapsed="0.001965"/>
+</branch>
+<branch type="ELSE">
+<kw name="Fail" owner="BuiltIn">
+<arg>${log entries} ${element_id}</arg>
+<doc>Fails the test with the given message and optionally alters its tags.</doc>
+<status status="NOT RUN" start="2024-05-20T13:24:15.280525" elapsed="0.000000"/>
+</kw>
+<status status="NOT RUN" start="2024-05-20T13:24:15.280525" elapsed="0.000000"/>
+</branch>
+<status status="PASS" start="2024-05-20T13:24:15.278560" elapsed="0.002995"/>
+</if>
+<var name="${element_id}">//html/body/header/button[3]/i[1]</var>
+<status status="PASS" start="2024-05-20T13:24:14.226450" elapsed="1.055105"/>
+</iter>
+<iter>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2024-05-20T13:24:15.282518" level="INFO">Clicking element '//html/body/ul[1]/li[7]'.</msg>
+<arg>${element_id}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2024-05-20T13:24:15.281555" elapsed="0.052570"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2024-05-20T13:24:16.335670" level="INFO">Slept 1 second.</msg>
+<arg>1</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2024-05-20T13:24:15.334125" elapsed="1.001545"/>
+</kw>
+<kw name="Get Browser Console Log Entries">
+<kw name="Get Library Instance" owner="BuiltIn">
+<msg time="2024-05-20T13:24:16.337686" level="INFO">${selenium} = &lt;SeleniumLibrary.SeleniumLibrary object at 0x000002E33E5D1E50&gt;</msg>
+<var>${selenium}</var>
+<arg>SeleniumLibrary</arg>
+<doc>Returns the currently active instance of the specified library.</doc>
+<status status="PASS" start="2024-05-20T13:24:16.337686" elapsed="0.000000"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2024-05-20T13:24:16.339724" level="INFO">${webdriver} = &lt;selenium.webdriver.chrome.webdriver.WebDriver (session="9495a13361c644d77af820e99ac6e56f")&gt;</msg>
+<var>${webdriver}</var>
+<arg>${selenium._drivers.active_drivers}[0]</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2024-05-20T13:24:16.338724" elapsed="0.001996"/>
+</kw>
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2024-05-20T13:24:16.346231" level="INFO">${log entries} = []</msg>
+<var>${log entries}</var>
+<arg>$webdriver.get_log('browser')</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2024-05-20T13:24:16.340720" elapsed="0.005511"/>
+</kw>
+<return>
+<value>${log entries}</value>
+<status status="PASS" start="2024-05-20T13:24:16.346231" elapsed="0.000998"/>
+</return>
+<msg time="2024-05-20T13:24:16.347229" level="INFO">${log entries} = []</msg>
+<var>${log entries}</var>
+<status status="PASS" start="2024-05-20T13:24:16.335670" elapsed="0.011559"/>
+</kw>
+<if>
+<branch type="IF" condition="${log entries} == []">
+<kw name="Log To Console" owner="BuiltIn">
+<arg>Elemento:${element_id} PASS</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2024-05-20T13:24:16.348230" elapsed="0.003007"/>
+</kw>
+<status status="PASS" start="2024-05-20T13:24:16.348230" elapsed="0.003007"/>
+</branch>
+<branch type="ELSE">
+<kw name="Fail" owner="BuiltIn">
+<arg>${log entries} ${element_id}</arg>
+<doc>Fails the test with the given message and optionally alters its tags.</doc>
+<status status="NOT RUN" start="2024-05-20T13:24:16.352227" elapsed="0.000000"/>
+</kw>
+<status status="NOT RUN" start="2024-05-20T13:24:16.352227" elapsed="0.000000"/>
+</branch>
+<status status="PASS" start="2024-05-20T13:24:16.347229" elapsed="0.004998"/>
+</if>
+<var name="${element_id}">//html/body/ul[1]/li[7]</var>
+<status status="PASS" start="2024-05-20T13:24:15.281555" elapsed="1.070672"/>
+</iter>
+<iter>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2024-05-20T13:24:16.354263" level="INFO">Clicking element '//html/body/header/button[3]/i[1]'.</msg>
+<arg>${element_id}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2024-05-20T13:24:16.353260" elapsed="0.044279"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2024-05-20T13:24:17.398725" level="INFO">Slept 1 second.</msg>
+<arg>1</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2024-05-20T13:24:16.397539" elapsed="1.001186"/>
+</kw>
+<kw name="Get Browser Console Log Entries">
+<kw name="Get Library Instance" owner="BuiltIn">
+<msg time="2024-05-20T13:24:17.402750" level="INFO">${selenium} = &lt;SeleniumLibrary.SeleniumLibrary object at 0x000002E33E5D1E50&gt;</msg>
+<var>${selenium}</var>
+<arg>SeleniumLibrary</arg>
+<doc>Returns the currently active instance of the specified library.</doc>
+<status status="PASS" start="2024-05-20T13:24:17.401757" elapsed="0.001996"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2024-05-20T13:24:17.406755" level="INFO">${webdriver} = &lt;selenium.webdriver.chrome.webdriver.WebDriver (session="9495a13361c644d77af820e99ac6e56f")&gt;</msg>
+<var>${webdriver}</var>
+<arg>${selenium._drivers.active_drivers}[0]</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2024-05-20T13:24:17.403753" elapsed="0.003994"/>
+</kw>
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2024-05-20T13:24:17.415363" level="INFO">${log entries} = []</msg>
+<var>${log entries}</var>
+<arg>$webdriver.get_log('browser')</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2024-05-20T13:24:17.407747" elapsed="0.008591"/>
+</kw>
+<return>
+<value>${log entries}</value>
+<status status="PASS" start="2024-05-20T13:24:17.416338" elapsed="0.000979"/>
+</return>
+<msg time="2024-05-20T13:24:17.418311" level="INFO">${log entries} = []</msg>
+<var>${log entries}</var>
+<status status="PASS" start="2024-05-20T13:24:17.399749" elapsed="0.018562"/>
+</kw>
+<if>
+<branch type="IF" condition="${log entries} == []">
+<kw name="Log To Console" owner="BuiltIn">
+<arg>Elemento:${element_id} PASS</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2024-05-20T13:24:17.419309" elapsed="0.001992"/>
+</kw>
+<status status="PASS" start="2024-05-20T13:24:17.418311" elapsed="0.002990"/>
+</branch>
+<branch type="ELSE">
+<kw name="Fail" owner="BuiltIn">
+<arg>${log entries} ${element_id}</arg>
+<doc>Fails the test with the given message and optionally alters its tags.</doc>
+<status status="NOT RUN" start="2024-05-20T13:24:17.421301" elapsed="0.000000"/>
+</kw>
+<status status="NOT RUN" start="2024-05-20T13:24:17.421301" elapsed="0.001554"/>
+</branch>
+<status status="PASS" start="2024-05-20T13:24:17.418311" elapsed="0.004544"/>
+</if>
+<var name="${element_id}">//html/body/header/button[3]/i[1]</var>
+<status status="PASS" start="2024-05-20T13:24:16.353260" elapsed="1.069595"/>
+</iter>
+<iter>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2024-05-20T13:24:17.423877" level="INFO">Clicking element '//html/body/ul[1]/li[8]'.</msg>
+<arg>${element_id}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2024-05-20T13:24:17.422855" elapsed="0.055787"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2024-05-20T13:24:18.479129" level="INFO">Slept 1 second.</msg>
+<arg>1</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2024-05-20T13:24:17.478642" elapsed="1.000487"/>
+</kw>
+<kw name="Get Browser Console Log Entries">
+<kw name="Get Library Instance" owner="BuiltIn">
+<msg time="2024-05-20T13:24:18.483142" level="INFO">${selenium} = &lt;SeleniumLibrary.SeleniumLibrary object at 0x000002E33E5D1E50&gt;</msg>
+<var>${selenium}</var>
+<arg>SeleniumLibrary</arg>
+<doc>Returns the currently active instance of the specified library.</doc>
+<status status="PASS" start="2024-05-20T13:24:18.482184" elapsed="0.000958"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2024-05-20T13:24:18.485182" level="INFO">${webdriver} = &lt;selenium.webdriver.chrome.webdriver.WebDriver (session="9495a13361c644d77af820e99ac6e56f")&gt;</msg>
+<var>${webdriver}</var>
+<arg>${selenium._drivers.active_drivers}[0]</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2024-05-20T13:24:18.483142" elapsed="0.003007"/>
+</kw>
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2024-05-20T13:24:18.490150" level="INFO">${log entries} = []</msg>
+<var>${log entries}</var>
+<arg>$webdriver.get_log('browser')</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2024-05-20T13:24:18.486149" elapsed="0.004994"/>
+</kw>
+<return>
+<value>${log entries}</value>
+<status status="PASS" start="2024-05-20T13:24:18.491143" elapsed="0.000000"/>
+</return>
+<msg time="2024-05-20T13:24:18.491143" level="INFO">${log entries} = []</msg>
+<var>${log entries}</var>
+<status status="PASS" start="2024-05-20T13:24:18.480185" elapsed="0.012558"/>
+</kw>
+<if>
+<branch type="IF" condition="${log entries} == []">
+<kw name="Log To Console" owner="BuiltIn">
+<arg>Elemento:${element_id} PASS</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2024-05-20T13:24:18.493682" elapsed="0.001000"/>
+</kw>
+<status status="PASS" start="2024-05-20T13:24:18.492743" elapsed="0.002932"/>
+</branch>
+<branch type="ELSE">
+<kw name="Fail" owner="BuiltIn">
+<arg>${log entries} ${element_id}</arg>
+<doc>Fails the test with the given message and optionally alters its tags.</doc>
+<status status="NOT RUN" start="2024-05-20T13:24:18.495675" elapsed="0.000000"/>
+</kw>
+<status status="NOT RUN" start="2024-05-20T13:24:18.495675" elapsed="0.001011"/>
+</branch>
+<status status="PASS" start="2024-05-20T13:24:18.492743" elapsed="0.003943"/>
+</if>
+<var name="${element_id}">//html/body/ul[1]/li[8]</var>
+<status status="PASS" start="2024-05-20T13:24:17.422855" elapsed="1.073831"/>
+</iter>
+<iter>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2024-05-20T13:24:18.497759" level="INFO">Clicking element '//html/body/header/button[3]/i[1]'.</msg>
+<arg>${element_id}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2024-05-20T13:24:18.496686" elapsed="0.044853"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2024-05-20T13:24:19.543162" level="INFO">Slept 1 second.</msg>
+<arg>1</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2024-05-20T13:24:18.542568" elapsed="1.000594"/>
+</kw>
+<kw name="Get Browser Console Log Entries">
+<kw name="Get Library Instance" owner="BuiltIn">
+<msg time="2024-05-20T13:24:19.545172" level="INFO">${selenium} = &lt;SeleniumLibrary.SeleniumLibrary object at 0x000002E33E5D1E50&gt;</msg>
+<var>${selenium}</var>
+<arg>SeleniumLibrary</arg>
+<doc>Returns the currently active instance of the specified library.</doc>
+<status status="PASS" start="2024-05-20T13:24:19.544217" elapsed="0.002953"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2024-05-20T13:24:19.549178" level="INFO">${webdriver} = &lt;selenium.webdriver.chrome.webdriver.WebDriver (session="9495a13361c644d77af820e99ac6e56f")&gt;</msg>
+<var>${webdriver}</var>
+<arg>${selenium._drivers.active_drivers}[0]</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2024-05-20T13:24:19.547170" elapsed="0.002008"/>
+</kw>
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2024-05-20T13:24:19.552685" level="INFO">${log entries} = []</msg>
+<var>${log entries}</var>
+<arg>$webdriver.get_log('browser')</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2024-05-20T13:24:19.549178" elapsed="0.003507"/>
+</kw>
+<return>
+<value>${log entries}</value>
+<status status="PASS" start="2024-05-20T13:24:19.553724" elapsed="0.000000"/>
+</return>
+<msg time="2024-05-20T13:24:19.554697" level="INFO">${log entries} = []</msg>
+<var>${log entries}</var>
+<status status="PASS" start="2024-05-20T13:24:19.543162" elapsed="0.011535"/>
+</kw>
+<if>
+<branch type="IF" condition="${log entries} == []">
+<kw name="Log To Console" owner="BuiltIn">
+<arg>Elemento:${element_id} PASS</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2024-05-20T13:24:19.556697" elapsed="0.001008"/>
+</kw>
+<status status="PASS" start="2024-05-20T13:24:19.555695" elapsed="0.002010"/>
+</branch>
+<branch type="ELSE">
+<kw name="Fail" owner="BuiltIn">
+<arg>${log entries} ${element_id}</arg>
+<doc>Fails the test with the given message and optionally alters its tags.</doc>
+<status status="NOT RUN" start="2024-05-20T13:24:19.557705" elapsed="0.001032"/>
+</kw>
+<status status="NOT RUN" start="2024-05-20T13:24:19.557705" elapsed="0.001032"/>
+</branch>
+<status status="PASS" start="2024-05-20T13:24:19.555695" elapsed="0.003042"/>
+</if>
+<var name="${element_id}">//html/body/header/button[3]/i[1]</var>
+<status status="PASS" start="2024-05-20T13:24:18.496686" elapsed="1.062051"/>
+</iter>
+<iter>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2024-05-20T13:24:19.559734" level="INFO">Clicking element '//html/body/ul[1]/li[9]'.</msg>
+<arg>${element_id}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2024-05-20T13:24:19.559734" elapsed="0.055275"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2024-05-20T13:24:20.615320" level="INFO">Slept 1 second.</msg>
+<arg>1</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2024-05-20T13:24:19.615009" elapsed="1.000311"/>
+</kw>
+<kw name="Get Browser Console Log Entries">
+<kw name="Get Library Instance" owner="BuiltIn">
+<msg time="2024-05-20T13:24:20.617327" level="INFO">${selenium} = &lt;SeleniumLibrary.SeleniumLibrary object at 0x000002E33E5D1E50&gt;</msg>
+<var>${selenium}</var>
+<arg>SeleniumLibrary</arg>
+<doc>Returns the currently active instance of the specified library.</doc>
+<status status="PASS" start="2024-05-20T13:24:20.616327" elapsed="0.001000"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2024-05-20T13:24:20.618328" level="INFO">${webdriver} = &lt;selenium.webdriver.chrome.webdriver.WebDriver (session="9495a13361c644d77af820e99ac6e56f")&gt;</msg>
+<var>${webdriver}</var>
+<arg>${selenium._drivers.active_drivers}[0]</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2024-05-20T13:24:20.617327" elapsed="0.002006"/>
+</kw>
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2024-05-20T13:24:20.622910" level="INFO">${log entries} = []</msg>
+<var>${log entries}</var>
+<arg>$webdriver.get_log('browser')</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2024-05-20T13:24:20.619333" elapsed="0.003577"/>
+</kw>
+<return>
+<value>${log entries}</value>
+<status status="PASS" start="2024-05-20T13:24:20.622910" elapsed="0.000938"/>
+</return>
+<msg time="2024-05-20T13:24:20.623848" level="INFO">${log entries} = []</msg>
+<var>${log entries}</var>
+<status status="PASS" start="2024-05-20T13:24:20.615320" elapsed="0.008528"/>
+</kw>
+<if>
+<branch type="IF" condition="${log entries} == []">
+<kw name="Log To Console" owner="BuiltIn">
+<arg>Elemento:${element_id} PASS</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2024-05-20T13:24:20.624852" elapsed="0.001001"/>
+</kw>
+<status status="PASS" start="2024-05-20T13:24:20.623848" elapsed="0.002005"/>
+</branch>
+<branch type="ELSE">
+<kw name="Fail" owner="BuiltIn">
+<arg>${log entries} ${element_id}</arg>
+<doc>Fails the test with the given message and optionally alters its tags.</doc>
+<status status="NOT RUN" start="2024-05-20T13:24:20.626850" elapsed="0.000000"/>
+</kw>
+<status status="NOT RUN" start="2024-05-20T13:24:20.625853" elapsed="0.000997"/>
+</branch>
+<status status="PASS" start="2024-05-20T13:24:20.623848" elapsed="0.003002"/>
+</if>
+<var name="${element_id}">//html/body/ul[1]/li[9]</var>
+<status status="PASS" start="2024-05-20T13:24:19.558737" elapsed="1.068113"/>
+</iter>
+<iter>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2024-05-20T13:24:20.630370" level="INFO">Clicking element '//html/body/header/button[3]/i[1]'.</msg>
+<arg>${element_id}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2024-05-20T13:24:20.629461" elapsed="0.044208"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2024-05-20T13:24:21.675167" level="INFO">Slept 1 second.</msg>
+<arg>1</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2024-05-20T13:24:20.673669" elapsed="1.001498"/>
+</kw>
+<kw name="Get Browser Console Log Entries">
+<kw name="Get Library Instance" owner="BuiltIn">
+<msg time="2024-05-20T13:24:21.678218" level="INFO">${selenium} = &lt;SeleniumLibrary.SeleniumLibrary object at 0x000002E33E5D1E50&gt;</msg>
+<var>${selenium}</var>
+<arg>SeleniumLibrary</arg>
+<doc>Returns the currently active instance of the specified library.</doc>
+<status status="PASS" start="2024-05-20T13:24:21.677234" elapsed="0.000984"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2024-05-20T13:24:21.680179" level="INFO">${webdriver} = &lt;selenium.webdriver.chrome.webdriver.WebDriver (session="9495a13361c644d77af820e99ac6e56f")&gt;</msg>
+<var>${webdriver}</var>
+<arg>${selenium._drivers.active_drivers}[0]</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2024-05-20T13:24:21.679235" elapsed="0.001943"/>
+</kw>
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2024-05-20T13:24:21.683722" level="INFO">${log entries} = []</msg>
+<var>${log entries}</var>
+<arg>$webdriver.get_log('browser')</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2024-05-20T13:24:21.681178" elapsed="0.002544"/>
+</kw>
+<return>
+<value>${log entries}</value>
+<status status="PASS" start="2024-05-20T13:24:21.684722" elapsed="0.000000"/>
+</return>
+<msg time="2024-05-20T13:24:21.684722" level="INFO">${log entries} = []</msg>
+<var>${log entries}</var>
+<status status="PASS" start="2024-05-20T13:24:21.676221" elapsed="0.008501"/>
+</kw>
+<if>
+<branch type="IF" condition="${log entries} == []">
+<kw name="Log To Console" owner="BuiltIn">
+<arg>Elemento:${element_id} PASS</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2024-05-20T13:24:21.685736" elapsed="0.000986"/>
+</kw>
+<status status="PASS" start="2024-05-20T13:24:21.684722" elapsed="0.002000"/>
+</branch>
+<branch type="ELSE">
+<kw name="Fail" owner="BuiltIn">
+<arg>${log entries} ${element_id}</arg>
+<doc>Fails the test with the given message and optionally alters its tags.</doc>
+<status status="NOT RUN" start="2024-05-20T13:24:21.687724" elapsed="0.000000"/>
+</kw>
+<status status="NOT RUN" start="2024-05-20T13:24:21.686722" elapsed="0.001002"/>
+</branch>
+<status status="PASS" start="2024-05-20T13:24:21.684722" elapsed="0.003002"/>
+</if>
+<var name="${element_id}">//html/body/header/button[3]/i[1]</var>
+<status status="PASS" start="2024-05-20T13:24:20.627849" elapsed="1.059875"/>
+</iter>
+<iter>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2024-05-20T13:24:21.688761" level="INFO">Clicking element '//html/body/ul[1]/li[10]'.</msg>
+<arg>${element_id}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2024-05-20T13:24:21.687724" elapsed="0.054672"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2024-05-20T13:24:22.744959" level="INFO">Slept 1 second.</msg>
+<arg>1</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2024-05-20T13:24:21.742396" elapsed="1.002563"/>
+</kw>
+<kw name="Get Browser Console Log Entries">
+<kw name="Get Library Instance" owner="BuiltIn">
+<msg time="2024-05-20T13:24:22.746004" level="INFO">${selenium} = &lt;SeleniumLibrary.SeleniumLibrary object at 0x000002E33E5D1E50&gt;</msg>
+<var>${selenium}</var>
+<arg>SeleniumLibrary</arg>
+<doc>Returns the currently active instance of the specified library.</doc>
+<status status="PASS" start="2024-05-20T13:24:22.746004" elapsed="0.000967"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2024-05-20T13:24:22.748010" level="INFO">${webdriver} = &lt;selenium.webdriver.chrome.webdriver.WebDriver (session="9495a13361c644d77af820e99ac6e56f")&gt;</msg>
+<var>${webdriver}</var>
+<arg>${selenium._drivers.active_drivers}[0]</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2024-05-20T13:24:22.746971" elapsed="0.001039"/>
+</kw>
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2024-05-20T13:24:22.750968" level="INFO">${log entries} = []</msg>
+<var>${log entries}</var>
+<arg>$webdriver.get_log('browser')</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2024-05-20T13:24:22.749008" elapsed="0.003477"/>
+</kw>
+<return>
+<value>${log entries}</value>
+<status status="PASS" start="2024-05-20T13:24:22.752485" elapsed="0.001007"/>
+</return>
+<msg time="2024-05-20T13:24:22.753492" level="INFO">${log entries} = []</msg>
+<var>${log entries}</var>
+<status status="PASS" start="2024-05-20T13:24:22.744959" elapsed="0.008533"/>
+</kw>
+<if>
+<branch type="IF" condition="${log entries} == []">
+<kw name="Log To Console" owner="BuiltIn">
+<arg>Elemento:${element_id} PASS</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2024-05-20T13:24:22.754531" elapsed="0.000963"/>
+</kw>
+<status status="PASS" start="2024-05-20T13:24:22.753492" elapsed="0.002002"/>
+</branch>
+<branch type="ELSE">
+<kw name="Fail" owner="BuiltIn">
+<arg>${log entries} ${element_id}</arg>
+<doc>Fails the test with the given message and optionally alters its tags.</doc>
+<status status="NOT RUN" start="2024-05-20T13:24:22.755494" elapsed="0.000000"/>
+</kw>
+<status status="NOT RUN" start="2024-05-20T13:24:22.755494" elapsed="0.001049"/>
+</branch>
+<status status="PASS" start="2024-05-20T13:24:22.753492" elapsed="0.003051"/>
+</if>
+<var name="${element_id}">//html/body/ul[1]/li[10]</var>
+<status status="PASS" start="2024-05-20T13:24:21.687724" elapsed="1.068819"/>
+</iter>
+<iter>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2024-05-20T13:24:22.757540" level="INFO">Clicking element '//html/body/header/button[3]/i[1]'.</msg>
+<arg>${element_id}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2024-05-20T13:24:22.756543" elapsed="0.047128"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2024-05-20T13:24:23.804935" level="INFO">Slept 1 second.</msg>
+<arg>1</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2024-05-20T13:24:22.803671" elapsed="1.001264"/>
+</kw>
+<kw name="Get Browser Console Log Entries">
+<kw name="Get Library Instance" owner="BuiltIn">
+<msg time="2024-05-20T13:24:23.806381" level="INFO">${selenium} = &lt;SeleniumLibrary.SeleniumLibrary object at 0x000002E33E5D1E50&gt;</msg>
+<var>${selenium}</var>
+<arg>SeleniumLibrary</arg>
+<doc>Returns the currently active instance of the specified library.</doc>
+<status status="PASS" start="2024-05-20T13:24:23.806381" elapsed="0.000000"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2024-05-20T13:24:23.808352" level="INFO">${webdriver} = &lt;selenium.webdriver.chrome.webdriver.WebDriver (session="9495a13361c644d77af820e99ac6e56f")&gt;</msg>
+<var>${webdriver}</var>
+<arg>${selenium._drivers.active_drivers}[0]</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2024-05-20T13:24:23.807351" elapsed="0.001001"/>
+</kw>
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2024-05-20T13:24:23.812361" level="INFO">${log entries} = []</msg>
+<var>${log entries}</var>
+<arg>$webdriver.get_log('browser')</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2024-05-20T13:24:23.809422" elapsed="0.002939"/>
+</kw>
+<return>
+<value>${log entries}</value>
+<status status="PASS" start="2024-05-20T13:24:23.812361" elapsed="0.001229"/>
+</return>
+<msg time="2024-05-20T13:24:23.813590" level="INFO">${log entries} = []</msg>
+<var>${log entries}</var>
+<status status="PASS" start="2024-05-20T13:24:23.804935" elapsed="0.008655"/>
+</kw>
+<if>
+<branch type="IF" condition="${log entries} == []">
+<kw name="Log To Console" owner="BuiltIn">
+<arg>Elemento:${element_id} PASS</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2024-05-20T13:24:23.813590" elapsed="0.000964"/>
+</kw>
+<status status="PASS" start="2024-05-20T13:24:23.813590" elapsed="0.000964"/>
+</branch>
+<branch type="ELSE">
+<kw name="Fail" owner="BuiltIn">
+<arg>${log entries} ${element_id}</arg>
+<doc>Fails the test with the given message and optionally alters its tags.</doc>
+<status status="NOT RUN" start="2024-05-20T13:24:23.815555" elapsed="0.000000"/>
+</kw>
+<status status="NOT RUN" start="2024-05-20T13:24:23.814554" elapsed="0.001001"/>
+</branch>
+<status status="PASS" start="2024-05-20T13:24:23.813590" elapsed="0.001965"/>
+</if>
+<var name="${element_id}">//html/body/header/button[3]/i[1]</var>
+<status status="PASS" start="2024-05-20T13:24:22.756543" elapsed="1.059012"/>
+</iter>
+<iter>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2024-05-20T13:24:23.816590" level="INFO">Clicking element '//html/body/ul[1]/li[11]'.</msg>
+<arg>${element_id}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2024-05-20T13:24:23.815555" elapsed="0.047526"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2024-05-20T13:24:24.864561" level="INFO">Slept 1 second.</msg>
+<arg>1</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2024-05-20T13:24:23.864093" elapsed="1.000468"/>
+</kw>
+<kw name="Get Browser Console Log Entries">
+<kw name="Get Library Instance" owner="BuiltIn">
+<msg time="2024-05-20T13:24:24.866577" level="INFO">${selenium} = &lt;SeleniumLibrary.SeleniumLibrary object at 0x000002E33E5D1E50&gt;</msg>
+<var>${selenium}</var>
+<arg>SeleniumLibrary</arg>
+<doc>Returns the currently active instance of the specified library.</doc>
+<status status="PASS" start="2024-05-20T13:24:24.865612" elapsed="0.000965"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2024-05-20T13:24:24.868574" level="INFO">${webdriver} = &lt;selenium.webdriver.chrome.webdriver.WebDriver (session="9495a13361c644d77af820e99ac6e56f")&gt;</msg>
+<var>${webdriver}</var>
+<arg>${selenium._drivers.active_drivers}[0]</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2024-05-20T13:24:24.867742" elapsed="0.000832"/>
+</kw>
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2024-05-20T13:24:24.872572" level="INFO">${log entries} = []</msg>
+<var>${log entries}</var>
+<arg>$webdriver.get_log('browser')</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2024-05-20T13:24:24.868574" elapsed="0.004999"/>
+</kw>
+<return>
+<value>${log entries}</value>
+<status status="PASS" start="2024-05-20T13:24:24.873573" elapsed="0.001073"/>
+</return>
+<msg time="2024-05-20T13:24:24.874646" level="INFO">${log entries} = []</msg>
+<var>${log entries}</var>
+<status status="PASS" start="2024-05-20T13:24:24.864561" elapsed="0.010085"/>
+</kw>
+<if>
+<branch type="IF" condition="${log entries} == []">
+<kw name="Log To Console" owner="BuiltIn">
+<arg>Elemento:${element_id} PASS</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2024-05-20T13:24:24.875613" elapsed="0.000997"/>
+</kw>
+<status status="PASS" start="2024-05-20T13:24:24.875613" elapsed="0.001962"/>
+</branch>
+<branch type="ELSE">
+<kw name="Fail" owner="BuiltIn">
+<arg>${log entries} ${element_id}</arg>
+<doc>Fails the test with the given message and optionally alters its tags.</doc>
+<status status="NOT RUN" start="2024-05-20T13:24:24.877575" elapsed="0.000000"/>
+</kw>
+<status status="NOT RUN" start="2024-05-20T13:24:24.877575" elapsed="0.000000"/>
+</branch>
+<status status="PASS" start="2024-05-20T13:24:24.875613" elapsed="0.001962"/>
+</if>
+<var name="${element_id}">//html/body/ul[1]/li[11]</var>
+<status status="PASS" start="2024-05-20T13:24:23.815555" elapsed="1.062020"/>
+</iter>
+<iter>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2024-05-20T13:24:24.878574" level="INFO">Clicking element '//html/body/header/button[3]/i[1]'.</msg>
+<arg>${element_id}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2024-05-20T13:24:24.878574" elapsed="0.042271"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2024-05-20T13:24:25.922591" level="INFO">Slept 1 second.</msg>
+<arg>1</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2024-05-20T13:24:24.922354" elapsed="1.000794"/>
+</kw>
+<kw name="Get Browser Console Log Entries">
+<kw name="Get Library Instance" owner="BuiltIn">
+<msg time="2024-05-20T13:24:25.929198" level="INFO">${selenium} = &lt;SeleniumLibrary.SeleniumLibrary object at 0x000002E33E5D1E50&gt;</msg>
+<var>${selenium}</var>
+<arg>SeleniumLibrary</arg>
+<doc>Returns the currently active instance of the specified library.</doc>
+<status status="PASS" start="2024-05-20T13:24:25.927183" elapsed="0.002015"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2024-05-20T13:24:25.937328" level="INFO">${webdriver} = &lt;selenium.webdriver.chrome.webdriver.WebDriver (session="9495a13361c644d77af820e99ac6e56f")&gt;</msg>
+<var>${webdriver}</var>
+<arg>${selenium._drivers.active_drivers}[0]</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2024-05-20T13:24:25.930194" elapsed="0.008134"/>
+</kw>
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2024-05-20T13:24:25.950912" level="INFO">${log entries} = []</msg>
+<var>${log entries}</var>
+<arg>$webdriver.get_log('browser')</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2024-05-20T13:24:25.939326" elapsed="0.012583"/>
+</kw>
+<return>
+<value>${log entries}</value>
+<status status="PASS" start="2024-05-20T13:24:25.952910" elapsed="0.002002"/>
+</return>
+<msg time="2024-05-20T13:24:25.955972" level="INFO">${log entries} = []</msg>
+<var>${log entries}</var>
+<status status="PASS" start="2024-05-20T13:24:25.924247" elapsed="0.033666"/>
+</kw>
+<if>
+<branch type="IF" condition="${log entries} == []">
+<kw name="Log To Console" owner="BuiltIn">
+<arg>Elemento:${element_id} PASS</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2024-05-20T13:24:25.960909" elapsed="0.003600"/>
+</kw>
+<status status="PASS" start="2024-05-20T13:24:25.958922" elapsed="0.005587"/>
+</branch>
+<branch type="ELSE">
+<kw name="Fail" owner="BuiltIn">
+<arg>${log entries} ${element_id}</arg>
+<doc>Fails the test with the given message and optionally alters its tags.</doc>
+<status status="NOT RUN" start="2024-05-20T13:24:25.966492" elapsed="0.001038"/>
+</kw>
+<status status="NOT RUN" start="2024-05-20T13:24:25.964509" elapsed="0.004032"/>
+</branch>
+<status status="PASS" start="2024-05-20T13:24:25.958922" elapsed="0.010611"/>
+</if>
+<var name="${element_id}">//html/body/header/button[3]/i[1]</var>
+<status status="PASS" start="2024-05-20T13:24:24.878574" elapsed="1.090959"/>
+</iter>
+<iter>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2024-05-20T13:24:25.976121" level="INFO">Clicking element '//html/body/header/button[4]/i[1]'.</msg>
+<arg>${element_id}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2024-05-20T13:24:25.973061" elapsed="0.062188"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2024-05-20T13:24:27.036999" level="INFO">Slept 1 second.</msg>
+<arg>1</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2024-05-20T13:24:26.035249" elapsed="1.001750"/>
+</kw>
+<kw name="Get Browser Console Log Entries">
+<kw name="Get Library Instance" owner="BuiltIn">
+<msg time="2024-05-20T13:24:27.039961" level="INFO">${selenium} = &lt;SeleniumLibrary.SeleniumLibrary object at 0x000002E33E5D1E50&gt;</msg>
+<var>${selenium}</var>
+<arg>SeleniumLibrary</arg>
+<doc>Returns the currently active instance of the specified library.</doc>
+<status status="PASS" start="2024-05-20T13:24:27.039961" elapsed="0.000000"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2024-05-20T13:24:27.041961" level="INFO">${webdriver} = &lt;selenium.webdriver.chrome.webdriver.WebDriver (session="9495a13361c644d77af820e99ac6e56f")&gt;</msg>
+<var>${webdriver}</var>
+<arg>${selenium._drivers.active_drivers}[0]</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2024-05-20T13:24:27.040957" elapsed="0.001004"/>
+</kw>
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2024-05-20T13:24:27.046328" level="INFO">${log entries} = []</msg>
+<var>${log entries}</var>
+<arg>$webdriver.get_log('browser')</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2024-05-20T13:24:27.041961" elapsed="0.004367"/>
+</kw>
+<return>
+<value>${log entries}</value>
+<status status="PASS" start="2024-05-20T13:24:27.046328" elapsed="0.001039"/>
+</return>
+<msg time="2024-05-20T13:24:27.047367" level="INFO">${log entries} = []</msg>
+<var>${log entries}</var>
+<status status="PASS" start="2024-05-20T13:24:27.037993" elapsed="0.009374"/>
+</kw>
+<if>
+<branch type="IF" condition="${log entries} == []">
+<kw name="Log To Console" owner="BuiltIn">
+<arg>Elemento:${element_id} PASS</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2024-05-20T13:24:27.049332" elapsed="0.001001"/>
+</kw>
+<status status="PASS" start="2024-05-20T13:24:27.048334" elapsed="0.001999"/>
+</branch>
+<branch type="ELSE">
+<kw name="Fail" owner="BuiltIn">
+<arg>${log entries} ${element_id}</arg>
+<doc>Fails the test with the given message and optionally alters its tags.</doc>
+<status status="NOT RUN" start="2024-05-20T13:24:27.050333" elapsed="0.001000"/>
+</kw>
+<status status="NOT RUN" start="2024-05-20T13:24:27.050333" elapsed="0.001000"/>
+</branch>
+<status status="PASS" start="2024-05-20T13:24:27.048334" elapsed="0.002999"/>
+</if>
+<var name="${element_id}">//html/body/header/button[4]/i[1]</var>
+<status status="PASS" start="2024-05-20T13:24:25.971516" elapsed="1.079817"/>
+</iter>
+<iter>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2024-05-20T13:24:27.051333" level="INFO">Clicking element '//html/body/ul[1]/li[2]'.</msg>
+<arg>${element_id}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2024-05-20T13:24:27.051333" elapsed="0.050251"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2024-05-20T13:24:28.102944" level="INFO">Slept 1 second.</msg>
+<arg>1</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2024-05-20T13:24:27.102627" elapsed="1.000317"/>
+</kw>
+<kw name="Get Browser Console Log Entries">
+<kw name="Get Library Instance" owner="BuiltIn">
+<msg time="2024-05-20T13:24:28.105866" level="INFO">${selenium} = &lt;SeleniumLibrary.SeleniumLibrary object at 0x000002E33E5D1E50&gt;</msg>
+<var>${selenium}</var>
+<arg>SeleniumLibrary</arg>
+<doc>Returns the currently active instance of the specified library.</doc>
+<status status="PASS" start="2024-05-20T13:24:28.104866" elapsed="0.001000"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2024-05-20T13:24:28.106868" level="INFO">${webdriver} = &lt;selenium.webdriver.chrome.webdriver.WebDriver (session="9495a13361c644d77af820e99ac6e56f")&gt;</msg>
+<var>${webdriver}</var>
+<arg>${selenium._drivers.active_drivers}[0]</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2024-05-20T13:24:28.105866" elapsed="0.001002"/>
+</kw>
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2024-05-20T13:24:28.110867" level="INFO">${log entries} = []</msg>
+<var>${log entries}</var>
+<arg>$webdriver.get_log('browser')</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2024-05-20T13:24:28.107867" elapsed="0.003000"/>
+</kw>
+<return>
+<value>${log entries}</value>
+<status status="PASS" start="2024-05-20T13:24:28.110867" elapsed="0.001064"/>
+</return>
+<msg time="2024-05-20T13:24:28.111931" level="INFO">${log entries} = []</msg>
+<var>${log entries}</var>
+<status status="PASS" start="2024-05-20T13:24:28.102944" elapsed="0.008987"/>
+</kw>
+<if>
+<branch type="IF" condition="${log entries} == []">
+<kw name="Log To Console" owner="BuiltIn">
+<arg>Elemento:${element_id} PASS</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2024-05-20T13:24:28.112867" elapsed="0.001001"/>
+</kw>
+<status status="PASS" start="2024-05-20T13:24:28.111931" elapsed="0.001937"/>
+</branch>
+<branch type="ELSE">
+<kw name="Fail" owner="BuiltIn">
+<arg>${log entries} ${element_id}</arg>
+<doc>Fails the test with the given message and optionally alters its tags.</doc>
+<status status="NOT RUN" start="2024-05-20T13:24:28.114870" elapsed="0.000000"/>
+</kw>
+<status status="NOT RUN" start="2024-05-20T13:24:28.114870" elapsed="0.000000"/>
+</branch>
+<status status="PASS" start="2024-05-20T13:24:28.111931" elapsed="0.002939"/>
+</if>
+<var name="${element_id}">//html/body/ul[1]/li[2]</var>
+<status status="PASS" start="2024-05-20T13:24:27.051333" elapsed="1.063537"/>
+</iter>
+<iter>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2024-05-20T13:24:28.115903" level="INFO">Clicking element '//html/body/header/button[4]/i[1]'.</msg>
+<arg>${element_id}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2024-05-20T13:24:28.115903" elapsed="0.043804"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2024-05-20T13:24:29.161172" level="INFO">Slept 1 second.</msg>
+<arg>1</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2024-05-20T13:24:28.160707" elapsed="1.000972"/>
+</kw>
+<kw name="Get Browser Console Log Entries">
+<kw name="Get Library Instance" owner="BuiltIn">
+<msg time="2024-05-20T13:24:29.162690" level="INFO">${selenium} = &lt;SeleniumLibrary.SeleniumLibrary object at 0x000002E33E5D1E50&gt;</msg>
+<var>${selenium}</var>
+<arg>SeleniumLibrary</arg>
+<doc>Returns the currently active instance of the specified library.</doc>
+<status status="PASS" start="2024-05-20T13:24:29.162690" elapsed="0.000997"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2024-05-20T13:24:29.164689" level="INFO">${webdriver} = &lt;selenium.webdriver.chrome.webdriver.WebDriver (session="9495a13361c644d77af820e99ac6e56f")&gt;</msg>
+<var>${webdriver}</var>
+<arg>${selenium._drivers.active_drivers}[0]</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2024-05-20T13:24:29.163687" elapsed="0.002000"/>
+</kw>
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2024-05-20T13:24:29.170685" level="INFO">${log entries} = []</msg>
+<var>${log entries}</var>
+<arg>$webdriver.get_log('browser')</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2024-05-20T13:24:29.165687" elapsed="0.004998"/>
+</kw>
+<return>
+<value>${log entries}</value>
+<status status="PASS" start="2024-05-20T13:24:29.170685" elapsed="0.001004"/>
+</return>
+<msg time="2024-05-20T13:24:29.171689" level="INFO">${log entries} = []</msg>
+<var>${log entries}</var>
+<status status="PASS" start="2024-05-20T13:24:29.161679" elapsed="0.010010"/>
+</kw>
+<if>
+<branch type="IF" condition="${log entries} == []">
+<kw name="Log To Console" owner="BuiltIn">
+<arg>Elemento:${element_id} PASS</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2024-05-20T13:24:29.172688" elapsed="0.001329"/>
+</kw>
+<status status="PASS" start="2024-05-20T13:24:29.172688" elapsed="0.001329"/>
+</branch>
+<branch type="ELSE">
+<kw name="Fail" owner="BuiltIn">
+<arg>${log entries} ${element_id}</arg>
+<doc>Fails the test with the given message and optionally alters its tags.</doc>
+<status status="NOT RUN" start="2024-05-20T13:24:29.174017" elapsed="0.000990"/>
+</kw>
+<status status="NOT RUN" start="2024-05-20T13:24:29.174017" elapsed="0.000990"/>
+</branch>
+<status status="PASS" start="2024-05-20T13:24:29.172688" elapsed="0.002319"/>
+</if>
+<var name="${element_id}">//html/body/header/button[4]/i[1]</var>
+<status status="PASS" start="2024-05-20T13:24:28.114870" elapsed="1.060137"/>
+</iter>
+<iter>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2024-05-20T13:24:29.176003" level="INFO">Clicking element '//html/body/ul[1]/li[3]'.</msg>
+<arg>${element_id}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2024-05-20T13:24:29.175007" elapsed="0.049237"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2024-05-20T13:24:30.225618" level="INFO">Slept 1 second.</msg>
+<arg>1</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2024-05-20T13:24:29.225245" elapsed="1.000373"/>
+</kw>
+<kw name="Get Browser Console Log Entries">
+<kw name="Get Library Instance" owner="BuiltIn">
+<msg time="2024-05-20T13:24:30.226665" level="INFO">${selenium} = &lt;SeleniumLibrary.SeleniumLibrary object at 0x000002E33E5D1E50&gt;</msg>
+<var>${selenium}</var>
+<arg>SeleniumLibrary</arg>
+<doc>Returns the currently active instance of the specified library.</doc>
+<status status="PASS" start="2024-05-20T13:24:30.226665" elapsed="0.000000"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2024-05-20T13:24:30.228625" level="INFO">${webdriver} = &lt;selenium.webdriver.chrome.webdriver.WebDriver (session="9495a13361c644d77af820e99ac6e56f")&gt;</msg>
+<var>${webdriver}</var>
+<arg>${selenium._drivers.active_drivers}[0]</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2024-05-20T13:24:30.227625" elapsed="0.001000"/>
+</kw>
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2024-05-20T13:24:30.232665" level="INFO">${log entries} = []</msg>
+<var>${log entries}</var>
+<arg>$webdriver.get_log('browser')</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2024-05-20T13:24:30.228625" elapsed="0.004040"/>
+</kw>
+<return>
+<value>${log entries}</value>
+<status status="PASS" start="2024-05-20T13:24:30.232665" elapsed="0.000565"/>
+</return>
+<msg time="2024-05-20T13:24:30.233230" level="INFO">${log entries} = []</msg>
+<var>${log entries}</var>
+<status status="PASS" start="2024-05-20T13:24:30.225618" elapsed="0.007612"/>
+</kw>
+<if>
+<branch type="IF" condition="${log entries} == []">
+<kw name="Log To Console" owner="BuiltIn">
+<arg>Elemento:${element_id} PASS</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2024-05-20T13:24:30.234235" elapsed="0.001001"/>
+</kw>
+<status status="PASS" start="2024-05-20T13:24:30.233230" elapsed="0.002006"/>
+</branch>
+<branch type="ELSE">
+<kw name="Fail" owner="BuiltIn">
+<arg>${log entries} ${element_id}</arg>
+<doc>Fails the test with the given message and optionally alters its tags.</doc>
+<status status="NOT RUN" start="2024-05-20T13:24:30.236243" elapsed="0.000000"/>
+</kw>
+<status status="NOT RUN" start="2024-05-20T13:24:30.235236" elapsed="0.001007"/>
+</branch>
+<status status="PASS" start="2024-05-20T13:24:30.233230" elapsed="0.003013"/>
+</if>
+<var name="${element_id}">//html/body/ul[1]/li[3]</var>
+<status status="PASS" start="2024-05-20T13:24:29.175007" elapsed="1.061236"/>
+</iter>
+<iter>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2024-05-20T13:24:30.237278" level="INFO">Clicking element '//html/body/header/button[4]/i[1]'.</msg>
+<arg>${element_id}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2024-05-20T13:24:30.237278" elapsed="0.042345"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2024-05-20T13:24:31.280819" level="INFO">Slept 1 second.</msg>
+<arg>1</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2024-05-20T13:24:30.279623" elapsed="1.001196"/>
+</kw>
+<kw name="Get Browser Console Log Entries">
+<kw name="Get Library Instance" owner="BuiltIn">
+<msg time="2024-05-20T13:24:31.281831" level="INFO">${selenium} = &lt;SeleniumLibrary.SeleniumLibrary object at 0x000002E33E5D1E50&gt;</msg>
+<var>${selenium}</var>
+<arg>SeleniumLibrary</arg>
+<doc>Returns the currently active instance of the specified library.</doc>
+<status status="PASS" start="2024-05-20T13:24:31.281831" elapsed="0.001000"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2024-05-20T13:24:31.282831" level="INFO">${webdriver} = &lt;selenium.webdriver.chrome.webdriver.WebDriver (session="9495a13361c644d77af820e99ac6e56f")&gt;</msg>
+<var>${webdriver}</var>
+<arg>${selenium._drivers.active_drivers}[0]</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2024-05-20T13:24:31.282831" elapsed="0.000000"/>
+</kw>
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2024-05-20T13:24:31.287868" level="INFO">${log entries} = []</msg>
+<var>${log entries}</var>
+<arg>$webdriver.get_log('browser')</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2024-05-20T13:24:31.283866" elapsed="0.005002"/>
+</kw>
+<return>
+<value>${log entries}</value>
+<status status="PASS" start="2024-05-20T13:24:31.288868" elapsed="0.000000"/>
+</return>
+<msg time="2024-05-20T13:24:31.288868" level="INFO">${log entries} = []</msg>
+<var>${log entries}</var>
+<status status="PASS" start="2024-05-20T13:24:31.281831" elapsed="0.008036"/>
+</kw>
+<if>
+<branch type="IF" condition="${log entries} == []">
+<kw name="Log To Console" owner="BuiltIn">
+<arg>Elemento:${element_id} PASS</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2024-05-20T13:24:31.290868" elapsed="0.000000"/>
+</kw>
+<status status="PASS" start="2024-05-20T13:24:31.289867" elapsed="0.001995"/>
+</branch>
+<branch type="ELSE">
+<kw name="Fail" owner="BuiltIn">
+<arg>${log entries} ${element_id}</arg>
+<doc>Fails the test with the given message and optionally alters its tags.</doc>
+<status status="NOT RUN" start="2024-05-20T13:24:31.291862" elapsed="0.000000"/>
+</kw>
+<status status="NOT RUN" start="2024-05-20T13:24:31.291862" elapsed="0.001002"/>
+</branch>
+<status status="PASS" start="2024-05-20T13:24:31.289867" elapsed="0.002997"/>
+</if>
+<var name="${element_id}">//html/body/header/button[4]/i[1]</var>
+<status status="PASS" start="2024-05-20T13:24:30.236243" elapsed="1.056621"/>
+</iter>
+<iter>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2024-05-20T13:24:31.294864" level="INFO">Clicking element '//html/body/ul[1]/li[4]'.</msg>
+<arg>${element_id}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2024-05-20T13:24:31.293864" elapsed="0.056942"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2024-05-20T13:24:32.351365" level="INFO">Slept 1 second.</msg>
+<arg>1</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2024-05-20T13:24:31.350806" elapsed="1.000559"/>
+</kw>
+<kw name="Get Browser Console Log Entries">
+<kw name="Get Library Instance" owner="BuiltIn">
+<msg time="2024-05-20T13:24:32.352910" level="INFO">${selenium} = &lt;SeleniumLibrary.SeleniumLibrary object at 0x000002E33E5D1E50&gt;</msg>
+<var>${selenium}</var>
+<arg>SeleniumLibrary</arg>
+<doc>Returns the currently active instance of the specified library.</doc>
+<status status="PASS" start="2024-05-20T13:24:32.352910" elapsed="0.000000"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2024-05-20T13:24:32.354923" level="INFO">${webdriver} = &lt;selenium.webdriver.chrome.webdriver.WebDriver (session="9495a13361c644d77af820e99ac6e56f")&gt;</msg>
+<var>${webdriver}</var>
+<arg>${selenium._drivers.active_drivers}[0]</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2024-05-20T13:24:32.353921" elapsed="0.001002"/>
+</kw>
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2024-05-20T13:24:32.358945" level="INFO">${log entries} = []</msg>
+<var>${log entries}</var>
+<arg>$webdriver.get_log('browser')</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2024-05-20T13:24:32.354923" elapsed="0.004022"/>
+</kw>
+<return>
+<value>${log entries}</value>
+<status status="PASS" start="2024-05-20T13:24:32.358945" elapsed="0.000999"/>
+</return>
+<msg time="2024-05-20T13:24:32.359944" level="INFO">${log entries} = []</msg>
+<var>${log entries}</var>
+<status status="PASS" start="2024-05-20T13:24:32.351365" elapsed="0.009558"/>
+</kw>
+<if>
+<branch type="IF" condition="${log entries} == []">
+<kw name="Log To Console" owner="BuiltIn">
+<arg>Elemento:${element_id} PASS</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2024-05-20T13:24:32.360923" elapsed="0.001508"/>
+</kw>
+<status status="PASS" start="2024-05-20T13:24:32.360923" elapsed="0.001508"/>
+</branch>
+<branch type="ELSE">
+<kw name="Fail" owner="BuiltIn">
+<arg>${log entries} ${element_id}</arg>
+<doc>Fails the test with the given message and optionally alters its tags.</doc>
+<status status="NOT RUN" start="2024-05-20T13:24:32.362431" elapsed="0.000000"/>
+</kw>
+<status status="NOT RUN" start="2024-05-20T13:24:32.362431" elapsed="0.000000"/>
+</branch>
+<status status="PASS" start="2024-05-20T13:24:32.360923" elapsed="0.001508"/>
+</if>
+<var name="${element_id}">//html/body/ul[1]/li[4]</var>
+<status status="PASS" start="2024-05-20T13:24:31.292864" elapsed="1.069567"/>
+</iter>
+<iter>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2024-05-20T13:24:32.363472" level="INFO">Clicking element '//html/body/header/button[4]/i[1]'.</msg>
+<arg>${element_id}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2024-05-20T13:24:32.363472" elapsed="0.047157"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2024-05-20T13:24:33.412211" level="INFO">Slept 1 second.</msg>
+<arg>1</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2024-05-20T13:24:32.410629" elapsed="1.002282"/>
+</kw>
+<kw name="Get Browser Console Log Entries">
+<kw name="Get Library Instance" owner="BuiltIn">
+<msg time="2024-05-20T13:24:33.418824" level="INFO">${selenium} = &lt;SeleniumLibrary.SeleniumLibrary object at 0x000002E33E5D1E50&gt;</msg>
+<var>${selenium}</var>
+<arg>SeleniumLibrary</arg>
+<doc>Returns the currently active instance of the specified library.</doc>
+<status status="PASS" start="2024-05-20T13:24:33.416816" elapsed="0.003068"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2024-05-20T13:24:33.424824" level="INFO">${webdriver} = &lt;selenium.webdriver.chrome.webdriver.WebDriver (session="9495a13361c644d77af820e99ac6e56f")&gt;</msg>
+<var>${webdriver}</var>
+<arg>${selenium._drivers.active_drivers}[0]</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2024-05-20T13:24:33.420820" elapsed="0.004999"/>
+</kw>
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2024-05-20T13:24:33.439452" level="INFO">${log entries} = []</msg>
+<var>${log entries}</var>
+<arg>$webdriver.get_log('browser')</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2024-05-20T13:24:33.427814" elapsed="0.012695"/>
+</kw>
+<return>
+<value>${log entries}</value>
+<status status="PASS" start="2024-05-20T13:24:33.441462" elapsed="0.001564"/>
+</return>
+<msg time="2024-05-20T13:24:33.445086" level="INFO">${log entries} = []</msg>
+<var>${log entries}</var>
+<status status="PASS" start="2024-05-20T13:24:33.413875" elapsed="0.032765"/>
+</kw>
+<if>
+<branch type="IF" condition="${log entries} == []">
+<kw name="Log To Console" owner="BuiltIn">
+<arg>Elemento:${element_id} PASS</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2024-05-20T13:24:33.449681" elapsed="0.003067"/>
+</kw>
+<status status="PASS" start="2024-05-20T13:24:33.447692" elapsed="0.005056"/>
+</branch>
+<branch type="ELSE">
+<kw name="Fail" owner="BuiltIn">
+<arg>${log entries} ${element_id}</arg>
+<doc>Fails the test with the given message and optionally alters its tags.</doc>
+<status status="NOT RUN" start="2024-05-20T13:24:33.454781" elapsed="0.000941"/>
+</kw>
+<status status="NOT RUN" start="2024-05-20T13:24:33.453793" elapsed="0.001929"/>
+</branch>
+<status status="PASS" start="2024-05-20T13:24:33.447692" elapsed="0.008030"/>
+</if>
+<var name="${element_id}">//html/body/header/button[4]/i[1]</var>
+<status status="PASS" start="2024-05-20T13:24:32.363472" elapsed="1.092250"/>
+</iter>
+<iter>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2024-05-20T13:24:33.461869" level="INFO">Clicking element '//html/body/ul[1]/li[5]'.</msg>
+<arg>${element_id}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2024-05-20T13:24:33.457758" elapsed="0.089523"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2024-05-20T13:24:34.548794" level="INFO">Slept 1 second.</msg>
+<arg>1</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2024-05-20T13:24:33.547281" elapsed="1.001513"/>
+</kw>
+<kw name="Get Browser Console Log Entries">
+<kw name="Get Library Instance" owner="BuiltIn">
+<msg time="2024-05-20T13:24:34.549806" level="INFO">${selenium} = &lt;SeleniumLibrary.SeleniumLibrary object at 0x000002E33E5D1E50&gt;</msg>
+<var>${selenium}</var>
+<arg>SeleniumLibrary</arg>
+<doc>Returns the currently active instance of the specified library.</doc>
+<status status="PASS" start="2024-05-20T13:24:34.549806" elapsed="0.000998"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2024-05-20T13:24:34.550804" level="INFO">${webdriver} = &lt;selenium.webdriver.chrome.webdriver.WebDriver (session="9495a13361c644d77af820e99ac6e56f")&gt;</msg>
+<var>${webdriver}</var>
+<arg>${selenium._drivers.active_drivers}[0]</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2024-05-20T13:24:34.550804" elapsed="0.001039"/>
+</kw>
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2024-05-20T13:24:34.553975" level="INFO">${log entries} = []</msg>
+<var>${log entries}</var>
+<arg>$webdriver.get_log('browser')</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2024-05-20T13:24:34.551843" elapsed="0.003132"/>
+</kw>
+<return>
+<value>${log entries}</value>
+<status status="PASS" start="2024-05-20T13:24:34.554975" elapsed="0.000000"/>
+</return>
+<msg time="2024-05-20T13:24:34.554975" level="INFO">${log entries} = []</msg>
+<var>${log entries}</var>
+<status status="PASS" start="2024-05-20T13:24:34.548794" elapsed="0.007181"/>
+</kw>
+<if>
+<branch type="IF" condition="${log entries} == []">
+<kw name="Log To Console" owner="BuiltIn">
+<arg>Elemento:${element_id} PASS</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2024-05-20T13:24:34.555975" elapsed="0.000997"/>
+</kw>
+<status status="PASS" start="2024-05-20T13:24:34.555975" elapsed="0.001999"/>
+</branch>
+<branch type="ELSE">
+<kw name="Fail" owner="BuiltIn">
+<arg>${log entries} ${element_id}</arg>
+<doc>Fails the test with the given message and optionally alters its tags.</doc>
+<status status="NOT RUN" start="2024-05-20T13:24:34.557974" elapsed="0.000000"/>
+</kw>
+<status status="NOT RUN" start="2024-05-20T13:24:34.557974" elapsed="0.000000"/>
+</branch>
+<status status="PASS" start="2024-05-20T13:24:34.555975" elapsed="0.001999"/>
+</if>
+<var name="${element_id}">//html/body/ul[1]/li[5]</var>
+<status status="PASS" start="2024-05-20T13:24:33.456778" elapsed="1.102199"/>
+</iter>
+<iter>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2024-05-20T13:24:34.558977" level="INFO">Clicking element '//html/body/header/button[4]/i[1]'.</msg>
+<arg>${element_id}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2024-05-20T13:24:34.558977" elapsed="0.046554"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2024-05-20T13:24:35.606191" level="INFO">Slept 1 second.</msg>
+<arg>1</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2024-05-20T13:24:34.605531" elapsed="1.001643"/>
+</kw>
+<kw name="Get Browser Console Log Entries">
+<kw name="Get Library Instance" owner="BuiltIn">
+<msg time="2024-05-20T13:24:35.612163" level="INFO">${selenium} = &lt;SeleniumLibrary.SeleniumLibrary object at 0x000002E33E5D1E50&gt;</msg>
+<var>${selenium}</var>
+<arg>SeleniumLibrary</arg>
+<doc>Returns the currently active instance of the specified library.</doc>
+<status status="PASS" start="2024-05-20T13:24:35.610176" elapsed="0.002992"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2024-05-20T13:24:35.617250" level="INFO">${webdriver} = &lt;selenium.webdriver.chrome.webdriver.WebDriver (session="9495a13361c644d77af820e99ac6e56f")&gt;</msg>
+<var>${webdriver}</var>
+<arg>${selenium._drivers.active_drivers}[0]</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2024-05-20T13:24:35.614176" elapsed="0.003074"/>
+</kw>
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2024-05-20T13:24:35.626724" level="INFO">${log entries} = []</msg>
+<var>${log entries}</var>
+<arg>$webdriver.get_log('browser')</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2024-05-20T13:24:35.618215" elapsed="0.009541"/>
+</kw>
+<return>
+<value>${log entries}</value>
+<status status="PASS" start="2024-05-20T13:24:35.627756" elapsed="0.000964"/>
+</return>
+<msg time="2024-05-20T13:24:35.629717" level="INFO">${log entries} = []</msg>
+<var>${log entries}</var>
+<status status="PASS" start="2024-05-20T13:24:35.608159" elapsed="0.021558"/>
+</kw>
+<if>
+<branch type="IF" condition="${log entries} == []">
+<kw name="Log To Console" owner="BuiltIn">
+<arg>Elemento:${element_id} PASS</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2024-05-20T13:24:35.631723" elapsed="0.002634"/>
+</kw>
+<status status="PASS" start="2024-05-20T13:24:35.630729" elapsed="0.003628"/>
+</branch>
+<branch type="ELSE">
+<kw name="Fail" owner="BuiltIn">
+<arg>${log entries} ${element_id}</arg>
+<doc>Fails the test with the given message and optionally alters its tags.</doc>
+<status status="NOT RUN" start="2024-05-20T13:24:35.635417" elapsed="0.000000"/>
+</kw>
+<status status="NOT RUN" start="2024-05-20T13:24:35.634357" elapsed="0.002016"/>
+</branch>
+<status status="PASS" start="2024-05-20T13:24:35.630729" elapsed="0.005644"/>
+</if>
+<var name="${element_id}">//html/body/header/button[4]/i[1]</var>
+<status status="PASS" start="2024-05-20T13:24:34.558977" elapsed="1.077396"/>
+</iter>
+<iter>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2024-05-20T13:24:35.638371" level="INFO">Clicking element '//html/body/ul[1]/li[6]'.</msg>
+<arg>${element_id}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2024-05-20T13:24:35.637372" elapsed="0.098132"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2024-05-20T13:24:36.736660" level="INFO">Slept 1 second.</msg>
+<arg>1</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2024-05-20T13:24:35.735504" elapsed="1.001715"/>
+</kw>
+<kw name="Get Browser Console Log Entries">
+<kw name="Get Library Instance" owner="BuiltIn">
+<msg time="2024-05-20T13:24:36.740250" level="INFO">${selenium} = &lt;SeleniumLibrary.SeleniumLibrary object at 0x000002E33E5D1E50&gt;</msg>
+<var>${selenium}</var>
+<arg>SeleniumLibrary</arg>
+<doc>Returns the currently active instance of the specified library.</doc>
+<status status="PASS" start="2024-05-20T13:24:36.739288" elapsed="0.001960"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2024-05-20T13:24:36.744862" level="INFO">${webdriver} = &lt;selenium.webdriver.chrome.webdriver.WebDriver (session="9495a13361c644d77af820e99ac6e56f")&gt;</msg>
+<var>${webdriver}</var>
+<arg>${selenium._drivers.active_drivers}[0]</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2024-05-20T13:24:36.741248" elapsed="0.004659"/>
+</kw>
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2024-05-20T13:24:36.752449" level="INFO">${log entries} = []</msg>
+<var>${log entries}</var>
+<arg>$webdriver.get_log('browser')</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2024-05-20T13:24:36.745907" elapsed="0.007541"/>
+</kw>
+<return>
+<value>${log entries}</value>
+<status status="PASS" start="2024-05-20T13:24:36.753448" elapsed="0.001041"/>
+</return>
+<msg time="2024-05-20T13:24:36.755440" level="INFO">${log entries} = []</msg>
+<var>${log entries}</var>
+<status status="PASS" start="2024-05-20T13:24:36.738297" elapsed="0.018143"/>
+</kw>
+<if>
+<branch type="IF" condition="${log entries} == []">
+<kw name="Log To Console" owner="BuiltIn">
+<arg>Elemento:${element_id} PASS</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2024-05-20T13:24:36.757442" elapsed="0.002000"/>
+</kw>
+<status status="PASS" start="2024-05-20T13:24:36.756440" elapsed="0.003002"/>
+</branch>
+<branch type="ELSE">
+<kw name="Fail" owner="BuiltIn">
+<arg>${log entries} ${element_id}</arg>
+<doc>Fails the test with the given message and optionally alters its tags.</doc>
+<status status="NOT RUN" start="2024-05-20T13:24:36.760491" elapsed="0.000000"/>
+</kw>
+<status status="NOT RUN" start="2024-05-20T13:24:36.759442" elapsed="0.001049"/>
+</branch>
+<status status="PASS" start="2024-05-20T13:24:36.756440" elapsed="0.004051"/>
+</if>
+<var name="${element_id}">//html/body/ul[1]/li[6]</var>
+<status status="PASS" start="2024-05-20T13:24:35.637372" elapsed="1.123119"/>
+</iter>
+<iter>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2024-05-20T13:24:36.762435" level="INFO">Clicking element '//html/body/header/button[4]/i[1]'.</msg>
+<arg>${element_id}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2024-05-20T13:24:36.761493" elapsed="0.041373"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2024-05-20T13:24:37.803608" level="INFO">Slept 1 second.</msg>
+<arg>1</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2024-05-20T13:24:36.802866" elapsed="1.000742"/>
+</kw>
+<kw name="Get Browser Console Log Entries">
+<kw name="Get Library Instance" owner="BuiltIn">
+<msg time="2024-05-20T13:24:37.806619" level="INFO">${selenium} = &lt;SeleniumLibrary.SeleniumLibrary object at 0x000002E33E5D1E50&gt;</msg>
+<var>${selenium}</var>
+<arg>SeleniumLibrary</arg>
+<doc>Returns the currently active instance of the specified library.</doc>
+<status status="PASS" start="2024-05-20T13:24:37.805661" elapsed="0.000958"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2024-05-20T13:24:37.808676" level="INFO">${webdriver} = &lt;selenium.webdriver.chrome.webdriver.WebDriver (session="9495a13361c644d77af820e99ac6e56f")&gt;</msg>
+<var>${webdriver}</var>
+<arg>${selenium._drivers.active_drivers}[0]</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2024-05-20T13:24:37.807672" elapsed="0.001004"/>
+</kw>
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2024-05-20T13:24:37.811625" level="INFO">${log entries} = []</msg>
+<var>${log entries}</var>
+<arg>$webdriver.get_log('browser')</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2024-05-20T13:24:37.809623" elapsed="0.003034"/>
+</kw>
+<return>
+<value>${log entries}</value>
+<status status="PASS" start="2024-05-20T13:24:37.812657" elapsed="0.000567"/>
+</return>
+<msg time="2024-05-20T13:24:37.813224" level="INFO">${log entries} = []</msg>
+<var>${log entries}</var>
+<status status="PASS" start="2024-05-20T13:24:37.804669" elapsed="0.008555"/>
+</kw>
+<if>
+<branch type="IF" condition="${log entries} == []">
+<kw name="Log To Console" owner="BuiltIn">
+<arg>Elemento:${element_id} PASS</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2024-05-20T13:24:37.814244" elapsed="0.000991"/>
+</kw>
+<status status="PASS" start="2024-05-20T13:24:37.813224" elapsed="0.002011"/>
+</branch>
+<branch type="ELSE">
+<kw name="Fail" owner="BuiltIn">
+<arg>${log entries} ${element_id}</arg>
+<doc>Fails the test with the given message and optionally alters its tags.</doc>
+<status status="NOT RUN" start="2024-05-20T13:24:37.815235" elapsed="0.000000"/>
+</kw>
+<status status="NOT RUN" start="2024-05-20T13:24:37.815235" elapsed="0.000000"/>
+</branch>
+<status status="PASS" start="2024-05-20T13:24:37.813224" elapsed="0.002011"/>
+</if>
+<var name="${element_id}">//html/body/header/button[4]/i[1]</var>
+<status status="PASS" start="2024-05-20T13:24:36.761493" elapsed="1.053742"/>
+</iter>
+<iter>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2024-05-20T13:24:37.816276" level="INFO">Clicking element '//html/body/ul[1]/li[7]'.</msg>
+<msg time="2024-05-20T13:24:38.186044" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-1.png"&gt;&lt;img src="selenium-screenshot-1.png" width="800px"&gt;&lt;/a&gt;</msg>
+<msg time="2024-05-20T13:24:38.186044" level="FAIL">ElementNotInteractableException: Message: element not interactable
+  (Session info: chrome=125.0.6422.61)
+Stacktrace:
+	GetHandleVerifier [0x00007FF7B1E122C2+60002]
+	(No symbol) [0x00007FF7B1D8CA59]
+	(No symbol) [0x00007FF7B1C47D09]
+	(No symbol) [0x00007FF7B1C98A32]
+	(No symbol) [0x00007FF7B1C8B4D1]
+	(No symbol) [0x00007FF7B1CBC28A]
+	(No symbol) [0x00007FF7B1C8ADF6]
+	(No symbol) [0x00007FF7B1CBC4A0]
+	(No symbol) [0x00007FF7B1CDBCC7]
+	(No symbol) [0x00007FF7B1CBC033]
+	(No symbol) [0x00007FF7B1C89657]
+	(No symbol) [0x00007FF7B1C8A251]
+	GetHandleVerifier [0x00007FF7B2123E2D+3278285]
+	GetHandleVerifier [0x00007FF7B2170190+3590448]
+	GetHandleVerifier [0x00007FF7B21661D0+3549552]
+	GetHandleVerifier [0x00007FF7B1EC1DE6+779654]
+	(No symbol) [0x00007FF7B1D97ACF]
+	(No symbol) [0x00007FF7B1D92EE4]
+	(No symbol) [0x00007FF7B1D93072]
+	(No symbol) [0x00007FF7B1D82C4F]
+	BaseThreadInitThunk [0x00007FFB390B257D+29]
+	RtlUserThreadStart [0x00007FFB39CEAA48+40]
+</msg>
+<arg>${element_id}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="FAIL" start="2024-05-20T13:24:37.816276" elapsed="0.488913">ElementNotInteractableException: Message: element not interactable
+  (Session info: chrome=125.0.6422.61)
+Stacktrace:
+	GetHandleVerifier [0x00007FF7B1E122C2+60002]
+	(No symbol) [0x00007FF7B1D8CA59]
+	(No symbol) [0x00007FF7B1C47D09]
+	(No symbol) [0x00007FF7B1C98A32]
+	(No symbol) [0x00007FF7B1C8B4D1]
+	(No symbol) [0x00007FF7B1CBC28A]
+	(No symbol) [0x00007FF7B1C8ADF6]
+	(No symbol) [0x00007FF7B1CBC4A0]
+	(No symbol) [0x00007FF7B1CDBCC7]
+	(No symbol) [0x00007FF7B1CBC033]
+	(No symbol) [0x00007FF7B1C89657]
+	(No symbol) [0x00007FF7B1C8A251]
+	GetHandleVerifier [0x00007FF7B2123E2D+3278285]
+	GetHandleVerifier [0x00007FF7B2170190+3590448]
+	GetHandleVerifier [0x00007FF7B21661D0+3549552]
+	GetHandleVerifier [0x00007FF7B1EC1DE6+779654]
+	(No symbol) [0x00007FF7B1D97ACF]
+	(No symbol) [0x00007FF7B1D92EE4]
+	(No symbol) [0x00007FF7B1D93072]
+	(No symbol) [0x00007FF7B1D82C4F]
+	BaseThreadInitThunk [0x00007FFB390B257D+29]
+	RtlUserThreadStart [0x00007FFB39CEAA48+40]
+</status>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<arg>1</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="NOT RUN" start="2024-05-20T13:24:38.306142" elapsed="0.000000"/>
+</kw>
+<kw name="Get Browser Console Log Entries">
+<var>${log entries}</var>
+<status status="NOT RUN" start="2024-05-20T13:24:38.306142" elapsed="0.000000"/>
+</kw>
+<if>
+<branch type="IF" condition="${log entries} == []">
+<kw name="Log To Console" owner="BuiltIn">
+<arg>Elemento:${element_id} PASS</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="NOT RUN" start="2024-05-20T13:24:38.306142" elapsed="0.000999"/>
+</kw>
+<status status="NOT RUN" start="2024-05-20T13:24:38.306142" elapsed="0.000999"/>
+</branch>
+<branch type="ELSE">
+<kw name="Fail" owner="BuiltIn">
+<arg>${log entries} ${element_id}</arg>
+<doc>Fails the test with the given message and optionally alters its tags.</doc>
+<status status="NOT RUN" start="2024-05-20T13:24:38.307141" elapsed="0.000000"/>
+</kw>
+<status status="NOT RUN" start="2024-05-20T13:24:38.307141" elapsed="0.000000"/>
+</branch>
+<status status="NOT RUN" start="2024-05-20T13:24:38.306142" elapsed="0.000999"/>
+</if>
+<var name="${element_id}">//html/body/ul[1]/li[7]</var>
+<status status="FAIL" start="2024-05-20T13:24:37.815235" elapsed="0.491906">ElementNotInteractableException: Message: element not interactable
+  (Session info: chrome=125.0.6422.61)
+Stacktrace:
+	GetHandleVerifier [0x00007FF7B1E122C2+60002]
+	(No symbol) [0x00007FF7B1D8CA59]
+	(No symbol) [0x00007FF7B1C47D09]
+	(No symbol) [0x00007FF7B1C98A32]
+	(No symbol) [0x00007FF7B1C8B4D1]
+	(No symbol) [0x00007FF7B1CBC28A]
+	(No symbol) [0x00007FF7B1C8ADF6]
+	(No symbol) [0x00007FF7B1CBC4A0]
+	(No symbol) [0x00007FF7B1CDBCC7]
+	(No symbol) [0x00007FF7B1CBC033]
+	(No symbol) [0x00007FF7B1C89657]
+	(No symbol) [0x00007FF7B1C8A251]
+	GetHandleVerifier [0x00007FF7B2123E2D+3278285]
+	GetHandleVerifier [0x00007FF7B2170190+3590448]
+	GetHandleVerifier [0x00007FF7B21661D0+3549552]
+	GetHandleVerifier [0x00007FF7B1EC1DE6+779654]
+	(No symbol) [0x00007FF7B1D97ACF]
+	(No symbol) [0x00007FF7B1D92EE4]
+	(No symbol) [0x00007FF7B1D93072]
+	(No symbol) [0x00007FF7B1D82C4F]
+	BaseThreadInitThunk [0x00007FFB390B257D+29]
+	RtlUserThreadStart [0x00007FFB39CEAA48+40]
+</status>
+</iter>
+<var>${element_id}</var>
+<value>@{element_ids}</value>
+<status status="FAIL" start="2024-05-20T13:23:59.178633" elapsed="39.128508">ElementNotInteractableException: Message: element not interactable
+  (Session info: chrome=125.0.6422.61)
+Stacktrace:
+	GetHandleVerifier [0x00007FF7B1E122C2+60002]
+	(No symbol) [0x00007FF7B1D8CA59]
+	(No symbol) [0x00007FF7B1C47D09]
+	(No symbol) [0x00007FF7B1C98A32]
+	(No symbol) [0x00007FF7B1C8B4D1]
+	(No symbol) [0x00007FF7B1CBC28A]
+	(No symbol) [0x00007FF7B1C8ADF6]
+	(No symbol) [0x00007FF7B1CBC4A0]
+	(No symbol) [0x00007FF7B1CDBCC7]
+	(No symbol) [0x00007FF7B1CBC033]
+	(No symbol) [0x00007FF7B1C89657]
+	(No symbol) [0x00007FF7B1C8A251]
+	GetHandleVerifier [0x00007FF7B2123E2D+3278285]
+	GetHandleVerifier [0x00007FF7B2170190+3590448]
+	GetHandleVerifier [0x00007FF7B21661D0+3549552]
+	GetHandleVerifier [0x00007FF7B1EC1DE6+779654]
+	(No symbol) [0x00007FF7B1D97ACF]
+	(No symbol) [0x00007FF7B1D92EE4]
+	(No symbol) [0x00007FF7B1D93072]
+	(No symbol) [0x00007FF7B1D82C4F]
+	BaseThreadInitThunk [0x00007FFB390B257D+29]
+	RtlUserThreadStart [0x00007FFB39CEAA48+40]
+</status>
+</for>
+<kw name="Close All Browsers" owner="SeleniumLibrary" type="TEARDOWN">
+<doc>Closes all open browsers and resets the browser cache.</doc>
+<status status="PASS" start="2024-05-20T13:24:38.308143" elapsed="2.209558"/>
+</kw>
+<status status="FAIL" start="2024-05-20T13:23:44.008185" elapsed="56.510347">ElementNotInteractableException: Message: element not interactable
+  (Session info: chrome=125.0.6422.61)
+Stacktrace:
+	GetHandleVerifier [0x00007FF7B1E122C2+60002]
+	(No symbol) [0x00007FF7B1D8CA59]
+	(No symbol) [0x00007FF7B1C47D09]
+	(No symbol) [0x00007FF7B1C98A32]
+	(No symbol) [0x00007FF7B1C8B4D1]
+	(No symbol) [0x00007FF7B1CBC28A]
+	(No symbol) [0x00007FF7B1C8ADF6]
+	(No symbol) [0x00007FF7B1CBC4A0]
+	(No symbol) [0x00007FF7B1CDBCC7]
+	(No symbol) [0x00007FF7B1CBC033]
+	(No symbol) [0x00007FF7B1C89657]
+	(No symbol) [0x00007FF7B1C8A251]
+	GetHandleVerifier [0x00007FF7B2123E2D+3278285]
+	GetHandleVerifier [0x00007FF7B2170190+3590448]
+	GetHandleVerifier [0x00007FF7B21661D0+3549552]
+	GetHandleVerifier [0x00007FF7B1EC1DE6+779654]
+	(No symbol) [0x00007FF7B1D97ACF]
+	(No symbol) [0x00007FF7B1D92EE4]
+	(No symbol) [0x00007FF7B1D93072]
+	(No symbol) [0x00007FF7B1D82C4F]
+	BaseThreadInitThunk [0x00007FFB390B257D+29]
+	RtlUserThreadStart [0x00007FFB39CEAA48+40]
+</status>
+</test>
+<status status="FAIL" start="2024-05-20T13:23:43.805815" elapsed="56.717777"/>
+</suite>
+<status status="FAIL" start="2024-05-20T13:23:43.775648" elapsed="56.749940"/>
+</suite>
+<statistics>
+<total>
+<stat pass="0" fail="1" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="0" fail="1" skip="0" id="s1" name="Selenium">Selenium</stat>
+<stat pass="0" fail="1" skip="0" id="s1-s1" name="1Teste">Selenium.1Teste</stat>
+</suite>
+</statistics>
+<errors>
+<msg time="2024-05-20T13:23:43.741619" level="WARN">Error in file 'C:\GitRobot\Selenium\1teste.robot' on line 50: The '[Return]' setting is deprecated. Use the 'RETURN' statement instead.</msg>
+<msg time="2024-05-20T13:23:44.010188" level="WARN">desired_capabilities has been deprecated and removed. Please use options to configure browsers as per documentation.</msg>
+</errors>
+</robot>
