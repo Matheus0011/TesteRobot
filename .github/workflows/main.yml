@@ -11,7 +11,16 @@ jobs:
         uses: actions/checkout@v3
 
       - name: Setup Web Application
-        run: docker run -d -p 8000:8000 vncrtech/puppybank
+        run: |
+          sudo apt-get update
+          pip install webdrivermanager
+          sudo webdrivermanager firefox chrome --linkpath /usr/bin
+          sudo chmod +x /usr/bin/chromedriver
+          sudo apt -y --force-yes install fonts-liberation libasound2 libatk-bridge2.0-0 libatk1.0-0 libatspi2.0-0 libcairo2 libcups2 libdrm2 libgbm1 libgtk-3-0 libnspr4 libnss3 libpango-1.0-0 libx11-6 libxcb1 libxcomposite1 libxdamage1 libxext6 libxfixes3 libxrandr2 xdg-utils
+          sudo apt -y --force-yes instalar wget
+          wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb 2
+          sudo dpkg -i google-chrome-stable_current_amd64.deb
+          sudo apt install -
 
       - name: Setup Python
         uses: actions/setup-python@v5.0.0
@@ -22,6 +31,7 @@ jobs:
         run: |
           python -m venv .venv
           source .venv/bin/activate
+          pip install --upgrade robotframework
           pip install --upgrade robotframework-seleniumlibrary
 
       - name: Run RF WEB Test
