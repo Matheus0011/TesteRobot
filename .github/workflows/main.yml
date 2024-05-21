@@ -1,9 +1,9 @@
-name: Run Web Test
-run-name: On Push
+name: WebTest
+
 on: [push]
 
 jobs:
-  WebTest:
+  build:
     runs-on: ubuntu-latest
     
     steps:
@@ -26,4 +26,4 @@ jobs:
 
       - name: Run RF WEB Test
         run: |
-          robot -d ./resultados -v HEADLESS:true -v BROWSER:chromium TestesRobot
+          robot -d ./resultados -v TestesRobot
