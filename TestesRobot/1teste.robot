@@ -32,7 +32,6 @@ Browser Log Cases
     Open Browser    ${url}    Chrome    desired_capabilities=${capabilities}
     Maximize Browser Window
     Sleep    8
-     ${ELEMENTOS}    Get WebElements    //button
     FOR    ${element_id}    IN    @{element_ids}
         Click Element    ${element_id}
         Sleep    1
