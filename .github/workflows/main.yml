@@ -26,9 +26,9 @@ jobs:
 
       - name: Instalar o Google Chrome
         run: |
-          sudo wget -q https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
-          sudo dpkg -i google-chrome*.deb
-          sudo rm google-chrome*.deb
+          sudo wget -q https://storage.googleapis.com/chrome-for-testing-public/125.0.6422.78/linux64/chrome-headless-shell-linux64.zip
+          sudo unzip chrome-headless-shell-linux64.zip
+          sudo rm chrome-headless-shell-linux64.zip
 
       - name: Instalar o ChromeDriver
         run: |
