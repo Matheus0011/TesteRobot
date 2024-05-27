@@ -5,7 +5,7 @@ on: [push]
 
 jobs:
   build:
-    runs-on:  '18.10'
+    runs-on: ubuntu-18.10
     
     steps:
       - name: Checkout
