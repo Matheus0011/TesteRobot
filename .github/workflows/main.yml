@@ -18,24 +18,30 @@ jobs:
 
       - name: Setup Web Application
         run: |
-          python3 -m pip install robotframework && pip install robotframework-requests &&  pip install robotframework-selenium2library \
+          python3 -m pip install robotframework && pip install robotframework-requests &&  pip install robotframework-seleniumlibrary \
           && pip install xvfbwrapper && pip install robotframework-xvfb && pip install certifi && pip install asn1crypto \
           && pip install bcrypt && pip install robotframework-sshlibrary && pip install cryptography && pip install pyOpenSSL \
           && pip install idna && pip install requests[security]
 
 
-      - name: Chroem driver
+      - name: Instalar o Google Chrome
         run: |
-          sudo wget -q https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb && \
-          sudo dpkg -i google-chrome*.deb && \
-          sudo rm google-chrome*.deb && \
-          sudo wget -q https://chromedriver.storage.googleapis.com/89.0.4389.23/chromedriver_linux64.zip && \
-          sudo unzip chromedriver_linux64.zip && \
-          sudo rm chromedriver_linux64.zip && \
-          sudo mv chromedriver /usr/local/bin && \
+          sudo wget -q https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
+          sudo dpkg -i google-chrome*.deb
+          sudo rm google-chrome*.deb
+
+      - name: Instalar o ChromeDriver
+        run: |
+          sudo wget -q https://chromedriver.storage.googleapis.com/89.0.4389.23/chromedriver_linux64.zip
+          sudo unzip chromedriver_linux64.zip
+          sudo rm chromedriver_linux64.zip
+          sudo mv chromedriver /usr/local/bin
           sudo chmod +x /usr/local/bin/chromedriver
 
-
+      - name: Verificar instalação
+        run: |
+          which google-chrome
+          which chromedriver
       
       - name: Run RF WEB Test
         run: |
