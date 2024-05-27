@@ -39,4 +39,4 @@ jobs:
       
       - name: Run RF WEB Test
         run: |
-          robot -d ./resultados -v TestesRobot.robot
+          robot -d ./resultados -v 1teste.robot
