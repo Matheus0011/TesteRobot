@@ -21,14 +21,14 @@ jobs:
           python3 -m pip install robotframework && pip install robotframework-requests &&  pip install robotframework-seleniumlibrary \
           && pip install xvfbwrapper && pip install robotframework-xvfb && pip install certifi && pip install asn1crypto \
           && pip install bcrypt && pip install robotframework-sshlibrary && pip install cryptography && pip install pyOpenSSL \
-          && pip install idna && pip install requests[security]
+          && pip install idna && pip install requests[security] && pip install webdrivermanager
 
 
       - name: Instalar o Google Chrome
         run: |
-          sudo wget -q https://storage.googleapis.com/chrome-for-testing-public/125.0.6422.78/linux64/chrome-headless-shell-linux64.zip
-          sudo unzip chrome-headless-shell-linux64.zip
-          sudo rm chrome-headless-shell-linux64.zip
+          sudo wget -q https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
+          sudo dpkg -i google-chrome*.deb
+          sudo rm google-chrome*.deb
 
       - name: Instalar o ChromeDriver
         run: |
