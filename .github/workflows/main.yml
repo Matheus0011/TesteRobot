@@ -41,7 +41,9 @@ jobs:
       - name: Verificar instalação
         run: |
           which google-chrome
+          google-chrome --version
           which chromedriver
+          chromedriver --version
       
       - name: Run RF WEB Test
         run: |
