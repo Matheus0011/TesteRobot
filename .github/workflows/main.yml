@@ -24,10 +24,14 @@ jobs:
 
       - name: Setup Web Application
         run: |
-          python3 -m pip install robotframework && pip install robotframework-requests &&  pip install robotframework-seleniumlibrary \
-          && pip install xvfbwrapper && pip install robotframework-xvfb && pip install certifi && pip install asn1crypto \
-          && pip install bcrypt && pip install robotframework-sshlibrary && pip install cryptography && pip install pyOpenSSL \
-          && pip install idna && pip install requests[security] && pip install --upgrade pip && pip install python-dev-tools
+         sudo apt-get update
+         sudo apt-get install -y \
+          libnss3 \
+          libgconf-2-4 \
+          google-chrome-stable
+         python -m pip install --upgrade pip
+         pip install robotframework
+         pip install robotframework-seleniumlibrary
 
 
       - name: Verificar instalação
