@@ -9,9 +9,9 @@ jobs:
 
     services:
       selenium:
-        image: selenium/standalone-chrome:latest
+        image: ppodgorsek/robot-framework
         ports:
-          - 4444:4444
+          - 1001:1001
     
     steps:
       - name: Checkout
