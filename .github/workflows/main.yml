@@ -6,6 +6,12 @@ on: [push]
 jobs:
   build:
     runs-on: ubuntu-20.04
+
+    services:
+      selenium:
+        image: selenium/standalone-chrome:latest
+        ports:
+          - 4444:4444
     
     steps:
       - name: Checkout
