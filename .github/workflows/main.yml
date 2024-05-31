@@ -37,6 +37,14 @@ jobs:
           which chromedriver
           chromedriver --version
       
-      - name: Run RF WEB Test
+
+      - name: Run Robot Framework tests
         run: |
-          robot -d ./resultados TestesRobot
+         mkdir -p results
+         robot --outputdir results TestesRobot
+
+      - name: Upload test results
+        uses: actions/upload-artifact@v2
+        with:
+         name: robot-results
+         path: results
