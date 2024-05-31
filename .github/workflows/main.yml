@@ -9,45 +9,46 @@ jobs:
 
     services:
       selenium:
-        image: ppodgorsek/robot-framework
-        ports:
-          - 1001:1001
-    
+        image: selenium/standalone-chrome:latest
+        options:
+          --shm-size 2g
+
     steps:
-      - name: Checkout
-        uses: actions/checkout@v3
+    - name: Check out repository
+      uses: actions/checkout@v2
 
-      - name: Setup Python
-        uses: actions/setup-python@v5.0.0
-        with:
-          python-version: 3.12.2
+    - name: Set up Python
+      uses: actions/setup-python@v2
+      with:
+        python-version: '3.9'
 
-      - name: Install dependencies
-        run: |
-         sudo apt-get update
-         sudo apt-get install -y \
-           libnss3 \
-           libgconf-2-4 \
-          google-chrome-stable
-         python -m pip install --upgrade pip
-         pip install robotframework
-         pip install robotframework-seleniumlibrary
+    - name: Install dependencies
+      run: |
+        sudo apt-get update
+        sudo apt-get install -y \
+          libnss3 \
+          libgconf-2-4
+        python -m pip install --upgrade pip
+        pip install robotframework
+        pip install robotframework-seleniumlibrary
 
-      - name: Configure Chrome options
-        run: |
-         mkdir -p /tmp/.X11-unix
-         sudo chmod 1777 /tmp/.X11-unix
-         echo "CHROME_OPTS='--no-sandbox --disable-dev-shm-usage --headless --disable-gpu --remote-debugging-port=9222 --disable-software-rasterizer'" >> $GITHUB_ENV
+    - name: Download and set up ChromeDriver
+      run: |
+        CHROME_VERSION=$(google-chrome --version | grep -oP '\d+\.\d+\.\d+')
+        wget -N http://chromedriver.storage.googleapis.com/$CHROME_VERSION/chromedriver_linux64.zip
+        unzip chromedriver_linux64.zip -d /usr/local/bin/
+        rm chromedriver_linux64.zip
 
-      - name: Run Robot Framework tests
-        env:
-         CHROME_OPTS: ${{ secrets.CHROME_OPTS }}
-        run: |
-         mkdir -p results
-         robot --variable SELENIUM_LIBRARY_ARGS:"--browseroptions $CHROME_OPTS" --outputdir results TestesRobot
+    - name: Run Robot Framework tests
+      env:
+        ROBOT_SYSLOG_LEVEL: TRACE
+        ROBOT_OPTIONS: --loglevel TRACE
+      run: |
+        mkdir -p results
+        robot --outputdir results TestesRobot
 
-      - name: Upload test results
-        uses: actions/upload-artifact@v2
-        with:
-         name: robot-results
-         path: results
+    - name: Upload test results
+      uses: actions/upload-artifact@v2
+      with:
+        name: robot-results
+        path: results
