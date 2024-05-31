@@ -45,7 +45,7 @@ jobs:
         ROBOT_OPTIONS: --loglevel TRACE
       run: |
         mkdir -p results
-        robot --outputdir results TestesRobot
+        robot --variable BROWSER:chrome --variable CHROME_OPTIONS:"--headless --no-sandbox --disable-dev-shm-usage" --outputdir results TestesRobot
 
     - name: Upload test results
       uses: actions/upload-artifact@v2
