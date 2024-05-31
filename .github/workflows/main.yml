@@ -22,30 +22,29 @@ jobs:
         with:
           python-version: 3.12.2
 
-      - name: Setup Web Application
+      - name: Install dependencies
         run: |
          sudo apt-get update
          sudo apt-get install -y \
-          libnss3 \
-          libgconf-2-4 \
+           libnss3 \
+           libgconf-2-4 \
           google-chrome-stable
          python -m pip install --upgrade pip
          pip install robotframework
          pip install robotframework-seleniumlibrary
 
-
-      - name: Verificar instalação
+      - name: Configure Chrome options
         run: |
-          which google-chrome
-          google-chrome --version
-          which chromedriver
-          chromedriver --version
-      
+         mkdir -p /tmp/.X11-unix
+         sudo chmod 1777 /tmp/.X11-unix
+         echo "CHROME_OPTS='--no-sandbox --disable-dev-shm-usage --headless --disable-gpu --remote-debugging-port=9222 --disable-software-rasterizer'" >> $GITHUB_ENV
 
       - name: Run Robot Framework tests
+        env:
+         CHROME_OPTS: ${{ secrets.CHROME_OPTS }}
         run: |
          mkdir -p results
-         robot --outputdir results TestesRobot
+         robot --variable SELENIUM_LIBRARY_ARGS:"--browseroptions $CHROME_OPTS" --outputdir results TestesRobot
 
       - name: Upload test results
         uses: actions/upload-artifact@v2
